@@ -16,11 +16,9 @@ Phạm Trần Quốc Thắng	087205002810	Quản lý giá và định mức (Pri
 //bật TCP/IP trong SQL Server
 //Kiểm tra kết nối cho cổng 1433
 
-Bước 1: tạo môi trường ảo
-	+python -m venv .venv
-Bước 2 :cd đến file spripts và chạy môi trường ảo
+Bước 1 :cd đến file spripts trong fouder .venv và chạy môi trường ảo
 	+.\activate
-Bước 3: cd về file cha và tạo django
+Bước 2: cd về file cha và tạo django
 	+django-admin startproject <tên file>
 
 ////sửa trong seting:
