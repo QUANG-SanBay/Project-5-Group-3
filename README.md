@@ -15,12 +15,12 @@ Phạm Trần Quốc Thắng	087205002810	Quản lý giá và định mức (Pri
 //Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser ; để có thể chạy mt ảo
 //bật TCP/IP trong SQL Server
 //Kiểm tra kết nối cho cổng 1433
-
-Bước 1 :cd đến file spripts trong fouder .venv và chạy môi trường ảo
+Bước 1: tạo môi trường ảo "nếu chưa có"
+	+python -m venv venv
+Bước 2 :cd đến file spripts và chạy môi trường ảo
 	+.\activate
-Bước 2: cd về file cha và tạo django
+Bước 3: cd về file cha và tạo django
 	+django-admin startproject <tên file>
-
 ////sửa trong seting:
 DATABASES = {
     'default': {
