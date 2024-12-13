@@ -1,0 +1,4 @@
+python -m venv venv
+python -m pip install
+pip install django==5.1.3
+pip install mssql-django
