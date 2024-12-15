@@ -1,5 +1,7 @@
 :root{
     --primary-c: #fdd000;
+    --text-c:var(--black-c);
+    --text-c-white:var(--white-c);
     --bg-linear:linear-gradient(180deg, #d19a00, var(--main-c));
     --bg-head:#ffffe7;
     --white-c:#ffffe7;

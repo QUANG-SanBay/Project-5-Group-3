@@ -1,3 +1,5 @@
+{% load static %}
+
 <header class="header">
     <div class="header__top">
         <div class="grib wide">
@@ -22,6 +24,10 @@
                         </a>
                         <a href="" class="header__nav-link design">
                             <span class="header__nav-item">Mẫu thiết kế</span>
+                            <em></em>
+                        </a>
+                        <a href="" class="header__nav-link production">
+                            <span class="header__nav-item">Yêu cầu gia công</span>
                             <em></em>
                         </a>
                         <a href="" class="header__nav-link bog">
@@ -68,11 +74,30 @@
                     </ul>
                 </div>
                 <div class="header__top-cartSP">
-                    <a href="#" class="header__top-cartSP-link">
+                    <a href="#" class="header__top-cartSP-link" title="giỏ hàng của bạn">
                         <div class="header__top-cartSP-icon">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                     </a>
+                </div>
+                <div class="user user--done">
+                    <div class="user__infor" title="Thông tin người dùng">
+                        <!-- <span class="user__name">Trương minh Quang</span> -->
+                        <div class="user__avt">
+                            <img src="{% static 'home/img/media/img.jpg' %}" alt="" class="user__avt-img">
+                        </div>
+                        <span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="user__card">
+                        <ul class="user__card-list">
+                            <li class="user__card-item">
+                                Đăng xuất
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
