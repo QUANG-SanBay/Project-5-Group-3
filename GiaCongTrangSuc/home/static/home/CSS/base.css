@@ -23,6 +23,8 @@ html{
     font-size: 62.5%;
     font-family: 'Segoe UI',sans-serif;
     box-sizing: border-box;
+
+    scroll-behavior: smooth;
 }
 
 a{

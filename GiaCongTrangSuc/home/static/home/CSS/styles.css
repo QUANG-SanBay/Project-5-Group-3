@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 636px;
+  min-width: 675px;
 }
 .header__nav .header__nav-list {
   display: flex;
@@ -288,6 +288,89 @@
   color: var(--text-c);
 }
 
+.colection, .design-pattern, .blog {
+  scroll-margin-top: 100px;
+  margin-top: 24px;
+}
+
+.product {
+  position: relative;
+  box-shadow: 0.5px 0.5px 2px #2e2e2e;
+  transform: translateY(0);
+  transition: all 0.15s ease-in-out;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+.product:hover {
+  box-shadow: 1px 1px 2px #2e2e2e;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+.product:hover .product__buy {
+  transform: translateX(-50%) scaleY(1);
+}
+.product .product__link {
+  display: block;
+  color: var(--text-c);
+}
+.product .product__img {
+  max-width: 100%;
+  height: 100%;
+  max-height: 194px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--black-c-7);
+}
+.product .product__img-item {
+  width: 100%;
+}
+.product .product__info {
+  text-align: center;
+  height: 54px;
+  max-height: 100%;
+}
+.product .product__info-price {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  max-height: 24px;
+  overflow: hidden;
+}
+.product .product__info-price .product__info-price-unit {
+  font-size: 1.2rem;
+}
+.product .product__info-tt {
+  line-height: 25px;
+  padding: 0 6px;
+  height: 100%;
+  max-height: 50px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.product .product__buy {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 54px;
+  border-radius: 0 0 4px 4px;
+  background-color: rgba(166, 110, 2, 0.8);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: bottom;
+  transition: all 0.2s ease-in-out;
+}
+.product .product__buy-btn {
+  display: block;
+  color: var(--text-c-white);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  align-content: center;
+  height: 100%;
+}
 .body {
   margin-top: 120px;
   margin-bottom: 20px;
