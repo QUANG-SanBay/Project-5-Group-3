@@ -9,11 +9,11 @@
         Đặt gia công trang sức theo yêu cầu
     {% endblock title%}
         </title>
-    <link rel="stylesheet" href="{% static 'home/CSS/grib.css' %}">
-    <link rel="stylesheet" href="{% static 'home/CSS/animation.css' %}">
+    <link rel="stylesheet" href="{% static 'home/CSS/grib.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'home/CSS/animation.css' %}?v={{ timestamp }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'home/CSS/base.css' %}">
-    <link rel="stylesheet" href="{% static 'home/CSS/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'home/CSS/base.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'home/CSS/styles.css' %}?v={{ timestamp }}">
 </head>
 <body>
     {% include 'partials/header.html' %}
@@ -21,4 +21,5 @@
         {% block content %}{% endblock content %}
     </main>
     {% include 'partials/footer.html' %}
+    <script src="{% static 'home/JS/main.js' %}?v={{ timestamp }}"></script>
 </body>
