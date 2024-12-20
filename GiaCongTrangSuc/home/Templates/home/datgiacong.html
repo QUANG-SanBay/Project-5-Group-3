@@ -31,6 +31,114 @@
                         <input type="text" class="order__value-input" disabled>                            
                     </div>
                 </div>
+                <div class="order__ctnR">
+                    <form action="" class="form" id="form-order">
+                        <h2 class="form-title">Thông tin sản phẩm</h2>
+                        <div class="form-groub">
+                            <label for="name" class="form-label">Loại trang sức</label>
+                            <select class="form-input-seclect" id="name" name="name">
+                                <option value="ring">Nhẫn</option>
+                                <option value="necklace">Mặt Dây chuyền</option>
+                                <option value="bracelet">Vòng tay</option>
+                                <option value="earring">Bông tai</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="chatlieu" class="form-label">Chất liệu</label>
+                            <select class="form-input-seclect" id="chatlieu" name="chatlieu">
+                                <option value="diamond">kim cương</option>
+                                <option value="gold">vàng</option>
+                                <option value="silver">bạc</option>
+                                <option value="platinum">bạch kim</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="attached" class="form-label">Loại trang sức đính kèm</label>
+                            <select class="form-input-seclect" id="attached" name="attached">
+                                <option value="none">không có</option>
+                                <option value="ring">Nhẫn</option>
+                                <option value="necklace">Dây chuyền</option>
+                                <option value="bracelet">Vòng tay</option>
+                                <option value="earring">Bông tai</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="Daphu" class="form-label">Đá phụ</label>
+                            <select class="form-input-seclect" id="Daphu" name="Daphu">
+                                <option value="none">không có</option>
+                                <option value="CZ">Cubic Zirconia</option>
+                                <option value="Moissanite">Moissanite</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="Datam" class="form-label">Đá tấm</label>
+                            <select class="form-input-seclect" id="Datam" name="Datam">
+                                <option value="none">không có</option>
+                                <option value="Ruby">Ruby</option>
+                                <option value="Emerald">Emerald</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="size" class="form-label">kích cỡ</label>
+                            <select class="form-input-seclect" id="size" name="size">
+                                <option value="sizeit">16cm</option>
+                                <option value="sizeit">17cm</option>
+                                <option value="sizeit">18cm</option>
+                                <option value="sizeit">19cm</option>
+                                <option value="sizeit">20cm</option>
+                                <option value="sizeit">21cm</option>
+                                <option value="sizeit">22cm</option>
+                                <option value="sizeit">23cm</option>
+                                <option value="sizeit">24cm</option>
+                                <option value="sizeit">25cm</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="yeucaukhac" class="form-label">Thêm yêu cầu</label>
+                            <textarea class="form-input" id="yeucaukhac" rows="7" placeholder="Thêm yêu cầu"></textarea>
+                        </div>
+                        <button class="form-submit" type="submit">
+                            <span>
+                                Gửi yêu cầu cho nhân viên kinh doanh
+                            </span>
+                        </button>
+                    </form>
+                    <div class="confirms">
+                        <div class="confirms__quantity">
+                            <div class="confirms__quantity-item">
+                                <span class="confirms__quantity-item-title">Số lượng: </span>
+                                <span class="confirms__quantity-item-value">1</span>
+                            </div>
+                            <div class="confirms__quantity-btn">
+                                <button class="confirms__quantity-btn-item" id="minus">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <button class="confirms__quantity-btn-item" id="plus">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="confirms__btn">
+                            <div class="confirms__startOrder">
+                                <button class="confirms__startOrder-item" title="vui lòng đợi nhân viên xác nhận">
+                                    <span>
+                                        Tạo đơn hàng
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="confirms__quote">
+                                <button class="confirms__quote-item" title="vui lòng đợi nhân viên báo giá">
+                                    <span>
+                                        Chấp nhận báo giá
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mess">
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </section>
