@@ -107,7 +107,7 @@
                         <div class="confirms__quantity">
                             <div class="confirms__quantity-item">
                                 <span class="confirms__quantity-item-title">Số lượng: </span>
-                                <span class="confirms__quantity-item-value">1</span>
+                                <span class="confirms__quantity-item-value value">1</span>
                             </div>
                             <div class="confirms__quantity-btn">
                                 <button class="confirms__quantity-btn-item" id="minus">
@@ -136,9 +136,32 @@
                         </div>
                     </div>
                     <div class="mess">
-                        
+                        <div class="mess__btn">
+                            <button class="mess__btn-item" id="messBtn">
+                                <i class="fa-solid fa-comment"></i>
+                            </button>
+                        </div>
+                        <div class="mess__card closse">
+                            <div class="mess__header">
+                                <h3>Trao đổi thông tin</h3>
+                            </div>
+                            <div class="mess__body" id="messBody">
+                                <!-- Tin nhắn sẽ được thêm vào đây -->
+                            </div>
+                            <div class="mess__footer">
+                                <input type="text" id="messInput" placeholder="Nhập tin nhắn...">
+                                <button id="sendBtn">Gửi</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="cancel-order">
+                <button class="cancel-order__item" id="cancelOrder">
+                    <span>
+                        Hủy đơn hàng
+                    </span>
+                </button>
             </div>
         </div>
     </section>
