@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block title %}
+        sales | JP
+    {% endblock title%}
+        </title>
+    <link rel="stylesheet" href="{% static 'sales/CSS/grib.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'sales/CSS/animation.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'sales/CSS/base.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'sales/CSS/styles.css' %}?v={{ timestamp }}">
+</head>
+<body>
+    {% include 'partials/sales/header.html' %}
+    <main>
+        {% block content %}{% endblock content %}
+        
+        {% block salesYeuCau %}{% endblock salesYeuCau %}
+    </main>
+    {% include 'partials/sales/footer.html' %}
+    <script src="{% static 'sales/JS/main.js' %}?v={{ timestamp }}"></script>
+</body>
