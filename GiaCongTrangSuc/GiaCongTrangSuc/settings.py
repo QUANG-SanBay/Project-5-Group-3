@@ -88,8 +88,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'DatGiaCongTrangSuc',
-        'USER': 'quangsenpai',
-        'PASSWORD':'123456',
         'HOST': 'localhost',
         'PORT':'1433',
         'OPTIONS':{
