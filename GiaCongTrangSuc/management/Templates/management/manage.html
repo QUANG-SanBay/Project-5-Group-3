@@ -1,0 +1,35 @@
+{% extends 'management/base.html' %}
+{% load static %}
+{% block title %} Trang chủ Management - JP {%endblock%}
+
+
+{% block content %}
+<main class="body">
+    <section class="orders">
+        <div class="grib wide">
+            <div class="row">
+                <li class="col c-12 m-12 l-12 ll-12">
+                    <a href="{% url 'yeucaubaogia' %}" class="orders__item">
+                        <div class="orders__item-infor">
+                            <div class="orders__item-infor-name">
+                                <span>Trương Minh Quang</span>
+                            </div>
+                            <div class="orders__item-infor-time">
+                                <span>Ngày đặt hàng: 20/10/2021</span>
+                            </div>
+                            <div class="orders__item-infor-status">
+                                <span>Trạng thái: Đang chờ xác nhận</span>
+                            </div>
+                        </div>
+                        <div class="btn__receive">
+                            <button class="btn__receive-item">
+                                <span>Xem báo giá và sản phẩm</span>
+                            </button>
+                        </div>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

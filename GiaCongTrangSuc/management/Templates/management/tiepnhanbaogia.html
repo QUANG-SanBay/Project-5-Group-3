@@ -1,44 +1,46 @@
-{% extends 'home/base.html' %}
+{% extends 'management/base.html' %}
 {% load static %}
-{% block title %} Trang chủ - JP {%endblock%}
 
+{% block title %} Tiếp nhận báo giá - JP {%endblock%}
 
-
-{% block content %}
+{% block manageBaoGia %}
 <main class="body">
     <section class="order" id="costumer-order">
         <div class="grib wide">
             <div class="order__ctn">
                 <div class="order__imgPr">
                     <div class="order__imgPr-main">
-                        <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-main-item">
+                        <img src="Asset/images/Product/Bosuatapmau.png" alt="" class="order__imgPr-main-item">
                     </div>
                     <ul class="order__imgPr-list">
                         <li class="order__imgPr-list-item">
-                            <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
+                            <img src="Asset/images/Product/Bosuatapmau.png" alt="" class="order__imgPr-list-item">
                         </li>
                         <li class="order__imgPr-list-item">
-                           <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
+                           <img src="Asset/images/Product/Bosuatapmau.png" alt="" class="order__imgPr-list-item">
                         </li>
                         <li class="order__imgPr-list-item">
-                           <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
+                           <img src="Asset/images/Product/Bosuatapmau.png" alt="" class="order__imgPr-list-item">
                         </li>
                         <li class="order__imgPr-list-item">
-                          <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
+                          <img src="Asset/images/Product/Bosuatapmau.png" alt="" class="order__imgPr-list-item">
                         </li>
                     </ul>
                     <div class="order__value">
-                        <input type="text" class="order__value-input" disabled placeholder="Giá">
+                        <input type="text" class="order__value-input" disabled placeholder="???đ">
                         <form action="" class="form-price">
                             <label for="giaDa">Giá vàng thời điểm</label>
-                            <input type="text" class="form-price-input" id="giaDa" disabled name="giaDa" >
+                            <input type="text" class="form-price-input" id="giaDa" name="giaDa" disabled placeholder="Nhập giá vàng thời điểm">
                             <label for="Trongluong">Trọng lượng sản phẩm</label>
-                            <input type="text" class="form-price-input" id="Trongluong" disabled name="Trongluong" >
+                            <input type="text" class="form-price-input" id="Trongluong" name="Trongluong" disabled placeholder="Nhập trọng lượng sản phẩm">
                             <label for="TienCong">Tiền công</label>
-                            <input type="text" class="form-price-input" id="TienCong" disabled name="TienCong" >
+                            <input type="text" class="form-price-input" id="TienCong" name="TienCong" disabled placeholder="Nhập tiền công">
                             <label for="TienDa">Tiền Đá</label>
-                            <input type="text" class="form-price-input" id="TienDa" disabled name="TienDa" >
-                        </form>                             
+                            <input type="text" class="form-price-input" id="TienDa" name="TienDa" disabled placeholder="Nhập tiền đá">
+                            <button class="form-price-edit" type="submit" >
+                                <span>Chỉnh sửa</span>
+                            </button>
+                        </form>                        
                     </div>
                 </div>
                 <div class="order__ctnR">
@@ -46,7 +48,7 @@
                         <h2 class="form-title">Thông tin sản phẩm</h2>
                         <div class="form-groub">
                             <label for="name" class="form-label">Loại trang sức</label>
-                            <select class="form-input-seclect" id="name" name="name">
+                            <select class="form-input-seclect" id="name" disabled name="name">
                                 <option value="ring">Nhẫn</option>
                                 <option value="necklace">Mặt Dây chuyền</option>
                                 <option value="bracelet">Vòng tay</option>
@@ -55,7 +57,7 @@
                         </div>
                         <div class="form-groub">
                             <label for="chatlieu" class="form-label">Chất liệu</label>
-                            <select class="form-input-seclect" id="chatlieu" name="chatlieu">
+                            <select class="form-input-seclect" id="chatlieu" disabled name="chatlieu">
                                 <option value="diamond">kim cương</option>
                                 <option value="gold">vàng</option>
                                 <option value="silver">bạc</option>
@@ -64,7 +66,7 @@
                         </div>
                         <div class="form-groub">
                             <label for="attached" class="form-label">Loại trang sức đính kèm</label>
-                            <select class="form-input-seclect" id="attached" name="attached">
+                            <select class="form-input-seclect" id="attached" disabled name="attached">
                                 <option value="none">không có</option>
                                 <option value="ring">Nhẫn</option>
                                 <option value="necklace">Dây chuyền</option>
@@ -74,7 +76,7 @@
                         </div>
                         <div class="form-groub">
                             <label for="Daphu" class="form-label">Đá phụ</label>
-                            <select class="form-input-seclect" id="Daphu" name="Daphu">
+                            <select class="form-input-seclect" disabled id="Daphu" name="Daphu">
                                 <option value="none">không có</option>
                                 <option value="CZ">Cubic Zirconia</option>
                                 <option value="Moissanite">Moissanite</option>
@@ -82,7 +84,7 @@
                         </div>
                         <div class="form-groub">
                             <label for="Datam" class="form-label">Đá tấm</label>
-                            <select class="form-input-seclect" id="Datam" name="Datam">
+                            <select class="form-input-seclect" disabled id="Datam" name="Datam">
                                 <option value="none">không có</option>
                                 <option value="Ruby">Ruby</option>
                                 <option value="Emerald">Emerald</option>
@@ -90,7 +92,7 @@
                         </div>
                         <div class="form-groub">
                             <label for="size" class="form-label">kích cỡ</label>
-                            <select class="form-input-seclect" id="size" name="size">
+                            <select class="form-input-seclect" id="size" disabled name="size">
                                 <option value="sizeit">16cm</option>
                                 <option value="sizeit">17cm</option>
                                 <option value="sizeit">18cm</option>
@@ -105,11 +107,11 @@
                         </div>
                         <div class="form-groub">
                             <label for="yeucaukhac" class="form-label">Thêm yêu cầu</label>
-                            <textarea class="form-input" id="yeucaukhac" rows="7" placeholder="Thêm yêu cầu"></textarea>
+                            <textarea class="form-input" id="yeucaukhac" disabled rows="7" placeholder="Thêm yêu cầu"></textarea>
                         </div>
                         <button class="form-submit" type="submit">
                             <span>
-                                Gửi yêu cầu cho nhân viên kinh doanh
+                                Phê duyệt báo giá
                             </span>
                         </button>
                     </form>
@@ -128,24 +130,24 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="confirms__btn">
+                        <!-- <div class="confirms__btn">
                             <div class="confirms__startOrder">
-                                <button class="confirms__startOrder-item" title="vui lòng đợi nhân viên xác nhận">
+                                <button class="confirms__startOrder-item" title="">
                                     <span>
                                         Tạo đơn hàng
                                     </span>
                                 </button>
                             </div>
                             <div class="confirms__quote">
-                                <button class="confirms__quote-item" title="vui lòng đợi nhân viên báo giá">
+                                <button class="confirms__quote-item" title="" onclick="toggleForm()">
                                     <span>
-                                        Chấp nhận báo giá
+                                        Chỉnh sửa thông tin đơn hàng
                                     </span>
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="mess">
+                    <!-- <div class="mess">
                         <div class="mess__btn">
                             <button class="mess__btn-item" id="messBtn">
                                 <i class="fa-solid fa-comment"></i>
@@ -154,26 +156,20 @@
                         <div class="mess__card closse">
                             <div class="mess__header">
                                 <h3>Trao đổi thông tin</h3>
+                                <span>Khách hàng: Trương Minh Quang</span>
                             </div>
                             <div class="mess__body" id="messBody">
-                                <!-- Tin nhắn sẽ được thêm vào đây -->
+                                Tin nhắn sẽ được thêm vào đây
                             </div>
                             <div class="mess__footer">
                                 <input type="text" id="messInput" placeholder="Nhập tin nhắn...">
                                 <button id="sendBtn">Gửi</button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-            </div>
-            <div class="cancel-order">
-                <button class="cancel-order__item" id="cancelOrder">
-                    <span>
-                        Hủy đơn hàng
-                    </span>
-                </button>
             </div>
         </div>
     </section>
 </main>
-{% endblock content %}
+{% endblock %}

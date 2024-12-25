@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block title %}
+        Management | JP
+    {% endblock title%}
+        </title>
+    <link rel="stylesheet" href="{% static 'management/CSS/grib.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'management/CSS/animation.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'management/CSS/base.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'management/CSS/styles.css' %}?v={{ timestamp }}">
+</head>
+<body>
+    {% include 'partials/management/header.html' %}
+    <main>
+        {% block content %}{% endblock content %}
+        
+        {% block manageBaoGia %}{% endblock manageBaoGia %}
+    </main>
+    {% include 'partials/management/footer.html' %}
+    <script src="{% static 'management/JS/main.js' %}?v={{ timestamp }}"></script>
+</body>

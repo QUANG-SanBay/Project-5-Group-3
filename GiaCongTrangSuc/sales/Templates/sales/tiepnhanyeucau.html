@@ -28,7 +28,19 @@
                     </ul>
                     <div class="order__value">
                         <input type="text" class="order__value-input" disabled placeholder="???đ">
-                        <button class="order__value-edit"  onclick="toggleInput()">Chỉnh sửa giá</button>                            
+                            <form action="" class="form-price">
+                                <label for="giaDa">Giá vàng thời điểm</label>
+                                <input type="text" class="form-price-input" id="giaDa" name="giaDa" placeholder="Nhập giá vàng thời điểm">
+                                <label for="Trongluong">Trọng lượng sản phẩm</label>
+                                <input type="text" class="form-price-input" id="Trongluong" name="Trongluong" placeholder="Nhập trọng lượng sản phẩm">
+                                <label for="TienCong">Tiền công</label>
+                                <input type="text" class="form-price-input" id="TienCong" name="TienCong" placeholder="Nhập tiền công">
+                                <label for="TienDa">Tiền Đá</label>
+                                <input type="text" class="form-price-input" id="TienDa" name="TienDa" placeholder="Nhập tiền đá">
+                                <button class="form-price-edit" type="submit" >
+                                    <span>Chỉnh sửa</span>
+                                </button>
+                            </form>                           
                     </div>
                 </div>
                 <div class="order__ctnR">
