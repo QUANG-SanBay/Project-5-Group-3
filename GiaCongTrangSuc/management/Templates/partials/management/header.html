@@ -20,6 +20,22 @@
                         </span>
                     </div>
                 </div> -->
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <a href="{% url 'homeManagement' %}" class="header__nav-link home">
+                            <span class="header__nav-item">Trang chủ</span>
+                            <em></em>
+                        </a>
+                        <a href="{% url 'quanlydonhang' %}" class="header__nav-link collection">
+                            <span class="header__nav-item">Quản lí đơn hàng</span>
+                            <em></em>
+                        </a>
+                        <a href="{% url 'thongke' %}" class="header__nav-link design">
+                            <span class="header__nav-item">Thống kê</span>
+                            <em></em>
+                        </a>
+                    </ul>
+                </nav>
                 <div class="header__top-social" style="margin-left: auto;">
                     <ul class="header__top-social-list">
                         <a href="#" class="header__top-social-link">

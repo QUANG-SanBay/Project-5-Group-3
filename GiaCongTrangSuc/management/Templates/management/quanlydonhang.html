@@ -1,0 +1,106 @@
+{% extends 'management/base.html' %}
+{% load static %}
+
+{% block title %} Quản lý đơn hàng - JP {%endblock%}
+{% block manageOder %}
+<main class="body">
+    <section class="manage">
+        <div class="section-title">
+            <div class="grib wide">
+                <div class="row">
+                    <div class="section-title__h2">
+                        <h2 class="section-title__h2-item">Danh sách đơn hàng</h2>
+                    </div>
+                    <div class="section-title__underline">
+                        <em></em>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grib wide">
+            <div class="manage-orders">
+                <div class="manage-orders__search">
+                    <input type="text" class="manage-orders__search-input" placeholder="Tìm kiếm đơn hàng theo id">
+                    <div class="manage-orders__search-button">
+                        <span>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                    </div>
+                </div>
+                <ul class="manage-orders__list">
+                    <li class="manage-orders__item">
+                        <div class="manage-orders__item-delete">
+                            <div class="manage-orders__item-delete-item">
+                                <span>Xóa</span>
+                            </div>
+                            <div class="modal" id="modal">
+                                <div class="modal__content" id="modal__content">
+                                    <div class="modal__content-title">
+                                        <span>Bạn có chắc chắn muốn xóa đơn hàng</span><span class="order-ID"></span><span>?</span>
+                                    </div>
+                                    <div class="modal__content-action">
+                                        <div class="modal__content-action-btn">
+                                            <a href="" class="modal__content-action-btn-item no-delete">Không</a>
+                                        </div>
+                                        <div class="modal__content-action-btn">
+                                            <a href="" class="modal__content-action-btn-item yes-delete">Xóa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manage-orders__item-info">
+                            <div class="manage-orders__item-info-id">
+                                <div class="manage-orders__item-info-id-item">
+                                    <span>Mã đơn hàng</span>
+                                </div>
+                                <div class="manage-orders__item-info-id-item">
+                                    <span>1</span>
+                                </div>
+                            </div>
+                            <div class="manage-orders__item-infi-name">
+                                <div class="manage-orders__item-info-name-item">
+                                    <span>Tên khách hàng</span>
+                                </div>
+                                <div class="manage-orders__item-info-name-item">
+                                    <span>Trương Minh Quang</span>
+                                </div>
+                            </div>
+                            <div class="manage-orders__item-info-date">
+                                <div class="manage-orders__item-info-date-item">
+                                    <span>Ngày đặt hàng</span>
+                                </div>
+                                <div class="manage-orders__item-info-date-item">
+                                    <span>20/10/2021</span>
+                                </div>
+                            </div>
+                            <div class="manage-orders__item-info-money">
+                                <div class="manage-orders__item-info-money-item">
+                                    <span>Tổng tiền</span>
+                                </div>
+                                <div class="manage-orders__item-info-money-item">
+                                    <span>1000000</span>
+                                </div>
+                            </div>
+                            <div class="manage-orders__item-info-status">
+                                <div class="manage-orders__item-info-status-item">
+                                    <span>Trạng thái</span>
+                                </div>
+                                <div class="manage-orders__item-info-status-item">
+                                    <span>Đã giao hàng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manage-orders__item-action">
+                            <a href="" class="manage-orders__item-action-button">
+                                <button class="manage-orders__item-action-button-item">Xem chi tiết</button>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+    

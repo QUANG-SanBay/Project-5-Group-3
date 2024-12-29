@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const formPriceEditButton = document.querySelector('.form-price-edit');
+    const formPrice = formPriceEditButton.closest('form');
+
+    formPrice.addEventListener('submit', (event) => {
+        event.preventDefault();
+        toggleFormPrice();
+    });
+
+    calcPrice(); // Gọi hàm calcPrice khi DOMContentLoaded
+
     // Tạo biểu đồ thống kê
-    createCharts();
 });
 
 function toggleFormPrice() {
@@ -38,6 +47,3 @@ imgPrListItems.forEach(item => {
         mainImg.src = item.src;
     });
 });
-
-
-//Xóa đơn hàng

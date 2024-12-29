@@ -21,6 +21,11 @@
         {% block content %}{% endblock content %}
         
         {% block manageBaoGia %}{% endblock manageBaoGia %}
+        
+        {% block manageOder %}{% endblock manageOder %}
+
+        {% block thongke %}{% endblock thongke %}
+            
     </main>
     {% include 'partials/management/footer.html' %}
     <script src="{% static 'management/JS/main.js' %}?v={{ timestamp }}"></script>
