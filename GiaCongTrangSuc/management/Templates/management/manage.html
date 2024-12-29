@@ -1,0 +1,67 @@
+{% extends 'management/base.html' %}
+{% load static %}
+{% block title %} Trang chủ Management - JP {%endblock%}
+
+
+{% block content %}
+<main class="body">
+    <section class="control-ctn">
+        <div class="grib wide">
+            <div class="row">
+                <div class="col c-12 m-6 l-6 ll-6">
+                    <div class="control__get">
+                        <a href="quanlydonhang" class="control__get-link">
+                            <span>quản lí đơn hàng</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col c-12 m-6 l-6 ll-6">
+                    <div class="control__get">
+                        <a href="thongke" class="control__get-link">
+                            <span>Xem thống kê</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="orders">
+        <div class="section-title">
+            <div class="grib wide">
+                <div class="row">
+                    <div class="section-title__h2">
+                        <h2 class="section-title__h2-item">Các báo giá đang chờ xác nhận</h2>
+                    </div>
+                    <div class="section-title__underline">
+                        <em></em>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grib wide">
+            <div class="row">
+                <li class="col c-12 m-12 l-12 ll-12">
+                    <a href="{% url 'yeucaubaogia' %}" class="orders__item">
+                        <div class="orders__item-infor">
+                            <div class="orders__item-infor-name">
+                                <span>Trương Minh Quang</span>
+                            </div>
+                            <div class="orders__item-infor-time">
+                                <span>Ngày đặt hàng: 20/10/2021</span>
+                            </div>
+                            <div class="orders__item-infor-status">
+                                <span>Trạng thái: Đang chờ xác nhận</span>
+                            </div>
+                        </div>
+                        <div class="btn__receive">
+                            <button class="btn__receive-item">
+                                <span>Xem báo giá và sản phẩm</span>
+                            </button>
+                        </div>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

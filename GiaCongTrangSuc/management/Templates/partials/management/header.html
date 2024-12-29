@@ -1,0 +1,97 @@
+{% load static %}
+
+<header class="header">
+    <div class="header__top">
+        <div class="grib wide">
+            <div class="header__top-pr">
+                <div class="header__top-logo">
+                    <a href="{% url 'homeManagement' %}" class="header__top-logo-link">
+                        <div class="logo">
+                            <i class="fa-solid fa-gem"></i>
+                            <span>JP</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- <div class="header__top-search">
+                    <input type="text" class="header__top-search-input" placeholder="Tìm kiếm">
+                    <div class="header__top-search-button">
+                        <span>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                    </div>
+                </div> -->
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <a href="{% url 'homeManagement' %}" class="header__nav-link home">
+                            <span class="header__nav-item">Trang chủ</span>
+                            <em></em>
+                        </a>
+                        <a href="{% url 'quanlydonhang' %}" class="header__nav-link collection">
+                            <span class="header__nav-item">Quản lí đơn hàng</span>
+                            <em></em>
+                        </a>
+                        <a href="{% url 'thongke' %}" class="header__nav-link design">
+                            <span class="header__nav-item">Thống kê</span>
+                            <em></em>
+                        </a>
+                    </ul>
+                </nav>
+                <div class="header__top-social" style="margin-left: auto;">
+                    <ul class="header__top-social-list">
+                        <a href="#" class="header__top-social-link">
+                            <li class="header__top-social-item facebook" title="theo dõi chúng tôi qua facebook">
+                                <i class="fa-brands fa-facebook"></i>
+                            </li>
+                        </a>
+                        <a href="#" class="header__top-social-link">
+                            <li class="header__top-social-item instagram" title="theo dõi chúng tôi qua instagram">
+                                <i class="fa-brands fa-square-instagram"></i>
+                            </li>     
+                        </a>
+                        <a href="#" class="header__top-social-link">
+                            <li class="header__top-social-item twitter" title="theo dõi chúng tôi qua twitter">
+                                <i class="fa-brands fa-twitter"></i>
+                            </li>
+                        </a>
+                        <a href="#" class="header__top-social-link">
+                            <li class="header__top-social-item phone" title="Liên hệ chúng tôi qua phone">
+                                <i class="fa-solid fa-phone"></i>
+                            </li>
+                        </a>
+                        <a href="#" class="header__top-social-link">
+                            <li class="header__top-social-item email" title="Liên hệ chúng tôi qua email">
+                                <i class="fa-solid fa-envelope"></i>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                <!-- <div class="header__top-cartSP">
+                    <a href="#" class="header__top-cartSP-link" title="giỏ hàng của bạn">
+                        <div class="header__top-cartSP-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                    </a>
+                </div> -->
+                <div class="user user--done" style="margin-left: 38px;">
+                    <div class="user__infor" title="Thông tin người dùng">
+                        <!-- <span class="user__name">Trương minh Quang</span> -->
+                        <div class="user__avt">
+                            <img src="{% static 'sales/img/media/img.jpg' %}" alt="" class="user__avt-img">
+                        </div>
+                        <span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="user__card">
+                        <ul class="user__card-list">
+                            <li class="user__card-item">
+                                Đăng xuất
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

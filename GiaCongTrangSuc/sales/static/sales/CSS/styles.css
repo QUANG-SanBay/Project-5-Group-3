@@ -228,7 +228,6 @@
   margin-bottom: 76px;
 }
 .order .order__imgPr {
-  flex-shrink: 0;
   padding: 0 10px;
   width: 400px;
 }
@@ -267,12 +266,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80px;
   width: 100%;
-}
-.order__value span {
-  text-decoration: underline;
-  font-size: 2px;
 }
 
 .order__value-input {
@@ -286,6 +280,28 @@
   outline: none;
   color: var(--black-c-8);
   font-size: 3.4rem;
+  text-decoration: underline;
+}
+
+.form-price {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+}
+.form-price .form-price-input {
+  width: 100%;
+  height: 38px;
+  font-size: 1.6rem;
+  padding: 10px;
+  outline: none;
+  color: var(--black-c-9);
+}
+.form-price .form-price-edit {
+  width: 100%;
+  height: 38px;
+  font-size: 1.6rem;
+  background-color: var(--black-c-7);
+  color: var(--white-c-1);
 }
 
 .order__value-edit {
