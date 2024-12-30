@@ -1,7 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Tạo biểu đồ thống kê
-    createCharts();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Tạo biểu đồ thống kê
+// });
 
 function toggleFormPrice() {
     const input = document.querySelectorAll('.form-price-input');
