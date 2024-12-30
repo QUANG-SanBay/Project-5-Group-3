@@ -1,5 +1,4 @@
 createCharts();
-createCharts();
 function createCharts() {
     // Dữ liệu mẫu cho các biểu đồ
     const revenueData = [12000, 15000, 18000, 20000, 22000, 25000, 27000];//dư liệu doanh thu
