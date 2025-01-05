@@ -1,0 +1,168 @@
+{% extends 'design/base.html' %}
+{% load static %}
+{% block tiepnhan_design %}
+<main class="body">
+    <section class="order" id="costumer-order">
+        <div class="grib wide">
+            <div class="order__ctn">
+                <div class="order__imgPr">
+                    <div class="order__imgPr-main">
+                        <img src="" alt="" class="order__imgPr-main-item">
+                    </div>
+                    <ul class="order__imgPr-list">
+                        <li class="order__imgPr-list-item">
+                            <img src="" alt="" class="order__imgPr-list-item">
+                        </li>
+                        <li class="order__imgPr-list-item">
+                           <img src="" alt="" class="order__imgPr-list-item">
+                        </li>
+                        <li class="order__imgPr-list-item">
+                           <img src="" alt="" class="order__imgPr-list-item">
+                        </li>
+                        <li class="order__imgPr-list-item">
+                          <img src="" alt="" class="order__imgPr-list-item">
+                        </li>
+                    </ul>
+                    <div class="order__value">
+                        <input type="text" class="order__value-input" disabled placeholder="???đ">
+
+                        <form action="" class="form-price">
+                            <input type="text" class="form-price-input" name="giaDa" disabled placeholder="Nhập giá vàng thời điểm">
+                            <input type="text" class="form-price-input" name="Trongluong" disabled placeholder="Nhập trọng lượng sản phẩm">
+                            <input type="text" class="form-price-input" name="TienCong" disabled placeholder="Nhập tiền công">
+                            <input type="text" class="form-price-input" name="TienDa" disabled placeholder="Nhập tiền đá">
+                        </form>
+                        <!-- <button class="order__value-edit"  onclick="toggleInput()">Chỉnh sửa giá</button>                             -->
+                    </div>
+                </div>
+                <div class="order__ctnR">
+                    <form action="" class="form" id="form-order">
+                        <h2 class="form-title">Thông tin sản phẩm</h2>
+                        <div class="form-groub">
+                            <label for="name" class="form-label">Loại trang sức</label>
+                            <select class="form-input-seclect" id="name" disabled name="name">
+                                <option value="ring">Nhẫn</option>
+                                <option value="necklace">Mặt Dây chuyền</option>
+                                <option value="bracelet">Vòng tay</option>
+                                <option value="earring">Bông tai</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="chatlieu" class="form-label">Chất liệu</label>
+                            <select class="form-input-seclect" id="chatlieu" disabled name="chatlieu">
+                                <option value="diamond">kim cương</option>
+                                <option value="gold">vàng</option>
+                                <option value="silver">bạc</option>
+                                <option value="platinum">bạch kim</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="attached" class="form-label">Loại trang sức đính kèm</label>
+                            <select class="form-input-seclect" id="attached" disabled name="attached">
+                                <option value="none">không có</option>
+                                <option value="ring">Nhẫn</option>
+                                <option value="necklace">Dây chuyền</option>
+                                <option value="bracelet">Vòng tay</option>
+                                <option value="earring">Bông tai</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="Daphu" class="form-label">Đá phụ</label>
+                            <select class="form-input-seclect" disabled id="Daphu" name="Daphu">
+                                <option value="none">không có</option>
+                                <option value="CZ">Cubic Zirconia</option>
+                                <option value="Moissanite">Moissanite</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="Datam" class="form-label">Đá tấm</label>
+                            <select class="form-input-seclect" disabled id="Datam" name="Datam">
+                                <option value="none">không có</option>
+                                <option value="Ruby">Ruby</option>
+                                <option value="Emerald">Emerald</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="size" class="form-label">kích cỡ</label>
+                            <select class="form-input-seclect" id="size" disabled name="size">
+                                <option value="sizeit">16cm</option>
+                                <option value="sizeit">17cm</option>
+                                <option value="sizeit">18cm</option>
+                                <option value="sizeit">19cm</option>
+                                <option value="sizeit">20cm</option>
+                                <option value="sizeit">21cm</option>
+                                <option value="sizeit">22cm</option>
+                                <option value="sizeit">23cm</option>
+                                <option value="sizeit">24cm</option>
+                                <option value="sizeit">25cm</option>
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="yeucaukhac" class="form-label">Thêm yêu cầu</label>
+                            <textarea class="form-input" id="yeucaukhac" disabled rows="7" placeholder="Thêm yêu cầu"></textarea>
+                        </div>
+                        <button class="form-submit" type="submit">
+                            <span>
+                                Gửi bản thiết kế 3D cho khách
+                            </span>
+                        </button>
+                    </form>
+                    <div class="confirms">
+                        <div class="confirms__quantity">
+                            <div class="confirms__quantity-item">
+                                <span class="confirms__quantity-item-title">Số lượng: </span>
+                                <span class="confirms__quantity-item-value value">1</span>
+                            </div>
+                            <div class="confirms__quantity-btn">
+                                <button class="confirms__quantity-btn-item" id="minus">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <button class="confirms__quantity-btn-item" id="plus">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <div class="confirms__btn">
+                            <div class="confirms__startOrder">
+                                <button class="confirms__startOrder-item" title="">
+                                    <span>
+                                        Tạo đơn hàng
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="confirms__quote">
+                                <button class="confirms__quote-item" title="" onclick="toggleForm()">
+                                    <span>
+                                        Chỉnh sửa thông tin đơn hàng
+                                    </span>
+                                </button>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- <div class="mess">
+                        <div class="mess__btn">
+                            <button class="mess__btn-item" id="messBtn">
+                                <i class="fa-solid fa-comment"></i>
+                            </button>
+                        </div>
+                        <div class="mess__card closse">
+                            <div class="mess__header">
+                                <h3>Trao đổi thông tin</h3>
+                                <span>Khách hàng: Trương Minh Quang</span>
+                            </div>
+                            <div class="mess__body" id="messBody">
+                                
+                            </div>
+                            <div class="mess__footer">
+                                <input type="text" id="messInput" placeholder="Nhập tin nhắn...">
+                                <button id="sendBtn">Gửi</button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock tiepnhan_design %}
+    
