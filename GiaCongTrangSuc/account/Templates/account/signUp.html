@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - JP</title>
+    <link rel="stylesheet" href="{% static 'login/CSS/styles.css' %}?v={{ timestamp }}">
+</head>
+<body>
+    <div class="ctn">
+        <form action="" method="post" class="form" id="form-1">
+            <h3 class="title">Đăng ký</h3>
+            <div class="form-group">
+                <label for="full-name" class="form-label">Họ và Tên</label>
+                <input type="text" id="full-name" name="full-name"  placeholder="Nguyễn Văn A" >
+                <span class="form-mess"></span>
+            </div>
+            <div class="form-group">
+                <label for="form-email" class="form-label">Email</label>
+                <input type="email" id="form-email" name="email" placeholder="nguyenvanna@gmail.com">
+                <span class="form-mess"></span>
+            </div>
+            <div class="form-group">
+                <label for="form-password" class="form-label">Mật khẩu</label>
+                <input type="password" id="form-password" name="Password" placeholder="Nhập mật khẩu">
+                <span class="form-mess"></span>
+            </div>
+            <div class="form-group">
+                <label for="password-comfirmation" class="form-label">Nhập lại mật khẩu</label>
+                <input type="password" id="password-comfirmation" name="password-comfirmation" placeholder="Nhập lại mật khẩu">
+                <span class="form-mess"></span>
+            </div>
+            <div class="form-btn">
+                <button type="submit" class="form-btn__it">Đăng  ký</button>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'login/JS/main.js' %}?v={{ timestamp }}"></script>
+</body>
+</html>
