@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block title %}
+        Đặt gia công trang sức theo yêu cầu
+    {% endblock title%}
+        </title>
+        <link rel="stylesheet" href="{% static 'production/css/grib.css' %}?v={{ timestamp }}">
+        <link rel="stylesheet" href="{% static 'production/css/animation.css' %}?v={{ timestamp }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{% static 'production/css/base.css' %}?v={{ timestamp }}">
+        <link rel="stylesheet" href="{% static 'production/css/styles.css' %}?v={{ timestamp }}">
+
+        <script src="{% static 'production/js/production.js' %}?v={{ timestamp }}"></script>
+        
+</head>
+<body>
+    {% include 'partials/production/header.html' %}
+
+    {% block home %}{% endblock home %}
+
+    {% block order %}{% endblock order %}
+    {% include 'partials/production/footer.html' %}
+</body>
