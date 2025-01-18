@@ -1,6 +1,6 @@
 {% extends 'account/base.html' %}
 {% load static %}
-{% block title %}Đăng ký/Đăng nhập - JP{% endblock %}
+{% block title %}Đăng ký - JP{% endblock %}
 
 {% block signUp %}
 <div class="ctn">
@@ -53,10 +53,21 @@
         </div>
     </form>
     
+    {% if form_success %}
+    <div class="success-message" style="color: green; text-align: center;">
+        <p>{{ form_success }}</p>
+    </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "{% url 'login' %}";
+        }, 3000); // Redirect after 3 seconds
+    </script>
+    {% endif %}
+    
     <div class="other">
         <span>Bạn đã có tài khoản?</span>
-        <a href="{% url 'login' %}"  class="other__link">
-            <span>Đăng nhập<span>
+        <a href="{% url 'login' %}" class="other__link">
+            <span>Đăng nhập</span>
         </a>
     </div>
 </div>
