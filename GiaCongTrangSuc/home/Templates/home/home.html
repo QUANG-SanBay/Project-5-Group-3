@@ -1,270 +1,334 @@
-{% extends 'home/base.html' %}
-{% load static %}
-{% block title %} Trang chủ - JP {%endblock%}
-
-
-
-{% block content %}
+{% extends 'home/base.html' %} {% load static %} {% block title %} Trang chủ -
+JP {%endblock%} {% block content %}
 <main class="body">
-    <section class="intro">
-        <div class="grib wide">
-            <div class="row">
-                <div class="banner">
-                    <div class="banner__bg">
-                        <img src="{% static 'home/img/media/Banner-1.jpg' %}" alt="" class="banner__bg-img">
-                        <em></em>
-                    </div>
-                    <div class="banner__content">
-                        <h1 class="banner__content-tt">Welcom to Jewelry Processing</h1>
-                        <div class="banner__content-intro">
-                            <h3 class="banner__content-intro-tt">Quy trình chuyên nghiệp</h3>
-                            <span class="banner__content-intro-p">Quản lý toàn bộ quy trình từ khi khách hàng gửi yêu cầu cho đến khi sản phẩm được hoàn thành và bàn giao.</span>
-                        </div>
-                        <div class="banner__content-intro">
-                            <h3 class="banner__content-intro-tt">Nâng cao tương tác và minh bạch</h3>
-                            <span class="banner__content-intro-p">Cải thiện khả năng tương tác giữa khách hàng và các bộ phận trong công ty, đảm bảo sự minh bạch và hiệu quả trong công việc.</span>
-                        </div>
-                        <div class="banner__content-intro">
-                            <h3 class="banner__content-intro-tt">Tích hợp toàn diện</h3>
-                            <span class="banner__content-intro-p">Tích hợp việc quản lý chi phí, thiết kế, sản xuất và giao nhận vào một nền tảng duy nhất.</span>
-                        </div>
-                    </div>
-                </div>
+  <section class="intro">
+    <div class="grib wide">
+      <div class="row">
+        <div class="banner">
+          <div class="banner__bg">
+            <img
+              src="{% static 'home/img/media/Banner-1.jpg' %}"
+              alt=""
+              class="banner__bg-img"
+            />
+            <em></em>
+          </div>
+          <div class="banner__content">
+            <h1 class="banner__content-tt">Welcom to Jewelry Processing</h1>
+            <div class="banner__content-intro">
+              <h3 class="banner__content-intro-tt">Quy trình chuyên nghiệp</h3>
+              <span class="banner__content-intro-p"
+                >Quản lý toàn bộ quy trình từ khi khách hàng gửi yêu cầu cho đến
+                khi sản phẩm được hoàn thành và bàn giao.</span
+              >
             </div>
-        </div>
-    </section>
-    <section class="category">
-        <div class="section-title">
-            <div class="grib wide">
-                <div class="row">
-                    <div class="section-title__h2">
-                        <h2 class="section-title__h2-item">Doanh mục sản phẩm</h2>
-                    </div>
-                    <div class="section-title__underline">
-                        <em></em>
-                    </div>
-                </div>
+            <div class="banner__content-intro">
+              <h3 class="banner__content-intro-tt">
+                Nâng cao tương tác và minh bạch
+              </h3>
+              <span class="banner__content-intro-p"
+                >Cải thiện khả năng tương tác giữa khách hàng và các bộ phận
+                trong công ty, đảm bảo sự minh bạch và hiệu quả trong công
+                việc.</span
+              >
             </div>
-        </div>
-        <div class="grib wide">
-            <ul class="row">
-                <li class="category__item col c-4 m-4 l-2 ll-2">
-                    <a href="" class="category__item-link">
-                        <div class="category__item-icon">
-                            <img src="{% static 'home/img/media/Nhan-cate.png' %}" alt="" class="category__item-icon-img">
-                        </div>
-                        <div class="category__item-title">
-                            <span>Nhẫn</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="category__item col c-4 m-4 l-2 ll-2">
-                    <a href="" class="category__item-link">
-                        <div class="category__item-icon">
-                            <img src="{% static 'home/img/media/Bongtaicate.png' %}" alt="" class="category__item-icon-img">
-                        </div>
-                        <div class="category__item-title">
-                            <span>Bông tai</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="category__item col c-4 m-4 l-2 ll-2">
-                    <a href="" class="category__item-link">
-                        <div class="category__item-icon">
-                            <img src="{% static 'home/img/media/Vongtay-cate.png' %}" alt="" class="category__item-icon-img">
-                        </div>
-                        <div class="category__item-title">
-                            <span>Vòng tay</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="category__item col c-4 m-4 l-2 ll-2">
-                    <a href="" class="category__item-link">
-                        <div class="category__item-icon">
-                            <img src="{% static 'home/img/media/matdaychuyen-cate.png' %}" alt="" class="category__item-icon-img">
-                        </div>
-                        <div class="category__item-title">
-                            <span>Mặt dây chuyền</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="category__item col c-4 m-4 l-2 ll-2">
-                    <a href="" class="category__item-link">
-                        <div class="category__item-icon">
-                            <img src="{% static 'home/img/media/Daquy-cate.png' %}" alt="" class="category__item-icon-img">
-                        </div>
-                        <div class="category__item-title">
-                            <span>Đá quý</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="category__item col c-4 m-4 l-2 ll-2">
-                    <a href="" class="category__item-link">
-                        <div class="category__item-icon">
-                            <img src="{% static 'home/img/media/tatca-cate.png' %}" alt="" class="category__item-icon-img">
-                        </div>
-                        <div class="category__item-title">
-                            <span>Tất cả</span>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="colection" id="colection">
-        <div class="section-title">
-            <div class="grib wide">
-                <div class="row">
-                    <div class="section-title__h2">
-                        <h2 class="section-title__h2-item">Bộ sưa tập</h2>
-                    </div>
-                    <div class="section-title__underline">
-                        <em></em>
-                    </div>
-                </div>
+            <div class="banner__content-intro">
+              <h3 class="banner__content-intro-tt">Tích hợp toàn diện</h3>
+              <span class="banner__content-intro-p"
+                >Tích hợp việc quản lý chi phí, thiết kế, sản xuất và giao nhận
+                vào một nền tảng duy nhất.</span
+              >
             </div>
+          </div>
         </div>
-        <div class="grib wide">
-            <ul class="row">
-                <li class="colection__item col c-6 m-4 l-2 ll-2">
-                    <div class="product">
-                        <a href="" class="product__link colection__item-link">
-                            <div class="product__img colection__item-img">
-                                <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="product__img-item colection__item-img-item">
-                            </div>
-                            <div class="product__info colection__item-info">
-                                <div class="product__info-price">
-                                    <span class="product__info-price-num">~11.000.000</span>
-                                    <span class="product__info-price-unit">đ</span>
-                                </div>
-                                <span class="product__info-tt colection__item-tt">Bộ sưu tập kim cương</span>
-                            </div>
-                        </a>
-                        <div class="product__buy">
-                            <a href="" class="product__buy-btn">
-                                <span class="product__buy-tt">Thông tin chi tiết</span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+      </div>
+    </div>
+  </section>
+  <section class="category">
+    <div class="section-title">
+      <div class="grib wide">
+        <div class="row">
+          <div class="section-title__h2">
+            <h2 class="section-title__h2-item">Doanh mục sản phẩm</h2>
+          </div>
+          <div class="section-title__underline">
+            <em></em>
+          </div>
         </div>
-    </section>``
-    <section class="design-pattern design-pattern-img" id="design-pattern">
-        <div class="section-title">
-            <div class="grib wide">
-                <div class="row">
-                    <div class="section-title__h2">
-                        <h2 class="section-title__h2-item">Mẫu thiết kế | hình ảnh</h2>
-                    </div>
-                    <div class="section-title__underline">
-                        <em></em>
-                    </div>
-                </div>
+      </div>
+    </div>
+    <div class="grib wide">
+      <ul class="row">
+        <li class="category__item col c-4 m-4 l-2 ll-2">
+          <a href="" class="category__item-link">
+            <div class="category__item-icon">
+              <img
+                src="{% static 'home/img/media/Nhan-cate.png' %}"
+                alt=""
+                class="category__item-icon-img"
+              />
             </div>
-        </div>
-        <div class="grib wide">
-            <ul class="row">
-                <li class=" design-pattern__item col c-6 m-4 l-2 ll-2">
-                    <div class="product">
-                        <a href="" class="product__link design-pattern__item-link">
-                            <div class="product__img design-pattern__item-img">
-                                <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="product__img-item design-pattern__item-img-item">
-                            </div>
-                            <div class="product__info design-pattern__item-info">
-                                <div class="product__info-price">
-                                    <span class="product__info-price-num">~11.000.000</span>
-                                    <span class="product__info-price-unit">đ</span>
-                                </div>
-                                <span class="product__info-tt design-pattern__item-tt">Bộ sưu tập kim cương</span>
-                            </div>
-                        </a>
-                        <div class="product__buy">
-                            <a href="" class="product__buy-btn">
-                                <span class="product__buy-tt">Thông tin chi tiết</span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="design-pattern design-pattern-3d">
-        <div class="section-title">
-            <div class="grib wide">
-                <div class="row">
-                    <div class="section-title__h2">
-                        <h2 class="section-title__h2-item">Mẫu thiết kế | 3D</h2>
-                    </div>
-                    <div class="section-title__underline">
-                        <em></em>
-                    </div>
-                </div>
+            <div class="category__item-title">
+              <span>Nhẫn</span>
             </div>
-        </div>
-        <div class="grib wide">
-            <ul class="row">
-                <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
-                    <div class="product">
-                        <a href="" class="product__link design-pattern__item-link">
-                            <div class="product__img design-pattern__item-img">
-                                <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="product__img-item design-pattern__item-img-item">
-                            </div>
-                            <div class="product__info design-pattern__item-info">
-                                <div class="product__info-price">
-                                    <span class="product__info-price-num">~11.000.000</span>
-                                    <span class="product__info-price-unit">đ</span>
-                                </div>
-                                <span class="product__info-tt design-pattern__item-tt">Bộ sưu tập kim cương</span>
-                            </div>
-                        </a>
-                        <div class="product__buy">
-                            <a href="" class="product__buy-btn">
-                                <span class="product__buy-tt">Thông tin chi tiết</span>
-                            </a>
-                        </div>
-                        
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="blog" id="blog">
-        <div class="section-title">
-            <div class="grib wide">
-                <div class="row">
-                    <div class="section-title__h2">
-                        <h2 class="section-title__h2-item">Blog - chia sẽ</h2>
-                    </div>
-                    <div class="section-title__underline">
-                        <em></em>
-                    </div>
-                </div>
+          </a>
+        </li>
+        <li class="category__item col c-4 m-4 l-2 ll-2">
+          <a href="" class="category__item-link">
+            <div class="category__item-icon">
+              <img
+                src="{% static 'home/img/media/Bongtaicate.png' %}"
+                alt=""
+                class="category__item-icon-img"
+              />
             </div>
+            <div class="category__item-title">
+              <span>Bông tai</span>
+            </div>
+          </a>
+        </li>
+        <li class="category__item col c-4 m-4 l-2 ll-2">
+          <a href="" class="category__item-link">
+            <div class="category__item-icon">
+              <img
+                src="{% static 'home/img/media/Vongtay-cate.png' %}"
+                alt=""
+                class="category__item-icon-img"
+              />
+            </div>
+            <div class="category__item-title">
+              <span>Vòng tay</span>
+            </div>
+          </a>
+        </li>
+        <li class="category__item col c-4 m-4 l-2 ll-2">
+          <a href="" class="category__item-link">
+            <div class="category__item-icon">
+              <img
+                src="{% static 'home/img/media/matdaychuyen-cate.png' %}"
+                alt=""
+                class="category__item-icon-img"
+              />
+            </div>
+            <div class="category__item-title">
+              <span>Mặt dây chuyền</span>
+            </div>
+          </a>
+        </li>
+        <li class="category__item col c-4 m-4 l-2 ll-2">
+          <a href="" class="category__item-link">
+            <div class="category__item-icon">
+              <img
+                src="{% static 'home/img/media/Daquy-cate.png' %}"
+                alt=""
+                class="category__item-icon-img"
+              />
+            </div>
+            <div class="category__item-title">
+              <span>Đá quý</span>
+            </div>
+          </a>
+        </li>
+        <li class="category__item col c-4 m-4 l-2 ll-2">
+          <a href="" class="category__item-link">
+            <div class="category__item-icon">
+              <img
+                src="{% static 'home/img/media/tatca-cate.png' %}"
+                alt=""
+                class="category__item-icon-img"
+              />
+            </div>
+            <div class="category__item-title">
+              <span>Tất cả</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="colection" id="colection">
+    <div class="section-title">
+      <div class="grib wide">
+        <div class="row">
+          <div class="section-title__h2">
+            <h2 class="section-title__h2-item">Bộ sưa tập</h2>
+          </div>
+          <div class="section-title__underline">
+            <em></em>
+          </div>
         </div>
-        <div class="grib wide">
-            <ul class="row">
-                <li class="blog__item col c-6 m-4 l-2 ll-2">
-                    <div class="product">
-                        <a href="" class="product__link blog__item-link">
-                            <div class="product__img blog__item-img">
-                                <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="product__img-item blog__item-img-item">
-                            </div>
-                            <div class="product__info blog__item-info">
-                                <span class="product__info-tt blog__item-tt">Bộ sưu tập kim cương</span>
-                            </div>
-                        </a>
-                        <div class="product__buy">
-                            <a href="" class="product__buy-btn">
-                                <span class="product__buy-tt">Xem chi tiết</span>
-                            </a>
-                        </div>
-                        
-                    </div>
-                </li>
-            </ul>
+      </div>
+    </div>
+    <div class="grib wide">
+      <ul class="row">
+        {% for product in products_with_product_image %}
+        <li class="colection__item col c-6 m-4 l-2 ll-2">
+          <div class="product">
+            <a href="" class="product__link colection__item-link">
+              <div class="product__img colection__item-img">
+                <img
+                  src="{{product.product_image}}"
+                  alt=""
+                  class="product__img-item colection__item-img-item"
+                />
+              </div>
+              <div class="product__info colection__item-info">
+                <div class="product__info-price">
+                  <span class="product__info-price-num">{{product.price}}</span>
+                  <span class="product__info-price-unit">đ</span>
+                </div>
+                <span class="product__info-tt colection__item-tt"
+                  >{{product.name}}</span
+                >
+              </div>
+            </a>
+            <div class="product__buy">
+              <a href="" class="product__buy-btn">
+                <span class="product__buy-tt">Thông tin chi tiết</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="design-pattern design-pattern-img" id="design-pattern">
+    <div class="section-title">
+      <div class="grib wide">
+        <div class="row">
+          <div class="section-title__h2">
+            <h2 class="section-title__h2-item">Mẫu thiết kế | hình ảnh</h2>
+          </div>
+          <div class="section-title__underline">
+            <em></em>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="grib wide">
+      <ul class="row">
+        {% for product in products_with_mau_image %}
+        <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
+          <div class="product">
+            <a href="" class="product__link design-pattern__item-link">
+              <div class="product__img design-pattern__item-img">
+                <img
+                  src="{{product.mau_image}}"
+                  alt="{{ product.name }}"
+                  class="product__img-item design-pattern__item-img-item"
+                />
+              </div>
+              <div class="product__info design-pattern__item-info">
+                <div class="product__info-price">
+                  <span class="product__info-price-num">{{product.price}}</span>
+                  <span class="product__info-price-unit">đ</span>
+                </div>
+                <span class="product__info-tt design-pattern__item-tt"
+                  >{{product.name}}</span
+                >
+              </div>
+            </a>
+            <div class="product__buy">
+              <a href="" class="product__buy-btn">
+                <span class="product__buy-tt">Thông tin chi tiết</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  <section class="design-pattern design-pattern-3d">
+    <div class="section-title">
+      <div class="grib wide">
+        <div class="row">
+          <div class="section-title__h2">
+            <h2 class="section-title__h2-item">Mẫu thiết kế | 3D</h2>
+          </div>
+          <div class="section-title__underline">
+            <em></em>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grib wide">
+      <ul class="row">
+        {% for product in products_with_D_image %}
+        <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
+          <div class="product">
+            <a href="" class="product__link design-pattern__item-link">
+              <div class="product__img design-pattern__item-img">
+                <img
+                  src="{{product.D_image}}"
+                  alt="{{ product.name }}"
+                  class="product__img-item design-pattern__item-img-item"
+                />
+              </div>
+              <div class="product__info design-pattern__item-info">
+                <div class="product__info-price">
+                  <span class="product__info-price-num">{{product.price}}</span>
+                  <span class="product__info-price-unit">đ</span>
+                </div>
+                <span class="product__info-tt design-pattern__item-tt"
+                  >{{product.name}}</span
+                >
+              </div>
+            </a>
+            <div class="product__buy">
+              <a href="" class="product__buy-btn">
+                <span class="product__buy-tt">Thông tin chi tiết</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  <section class="blog" id="blog">
+    <div class="section-title">
+      <div class="grib wide">
+        <div class="row">
+          <div class="section-title__h2">
+            <h2 class="section-title__h2-item">Blog - chia sẽ</h2>
+          </div>
+          <div class="section-title__underline">
+            <em></em>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grib wide">
+      <ul class="row">
+        <li class="blog__item col c-6 m-4 l-2 ll-2">
+          <div class="product">
+            <a href="" class="product__link blog__item-link">
+              <div class="product__img blog__item-img">
+                <img
+                  src="{% static 'home/img/product/Bosuatapmau.png' %}"
+                  alt=""
+                  class="product__img-item blog__item-img-item"
+                />
+              </div>
+              <div class="product__info blog__item-info">
+                <span class="product__info-tt blog__item-tt"
+                  >Bộ sưu tập kim cương</span
+                >
+              </div>
+            </a>
+            <div class="product__buy">
+              <a href="" class="product__buy-btn">
+                <span class="product__buy-tt">Xem chi tiết</span>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 </main>
 <script src="{% static 'home/JS/main.js' %}?v={{ timestamp }}"></script>
 

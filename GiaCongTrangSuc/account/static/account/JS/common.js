@@ -1,7 +1,7 @@
 function validateField(index, input, errElm, form_gr, form_label, userPass) {
     var success = true;
     if (isRequire(input.value)) {
-        errElm[index].innerText = `vui lòng nhập trường "${form_label[index].innerText}".`;
+        errElm[index].innerText = `Vui lòng nhập trường "${form_label[index].innerText}".`;
         form_gr[index].classList.add('invalid');
         success = false;
     } else if (form_label[index].innerText === 'Email' && isEmail(input.value)) {
