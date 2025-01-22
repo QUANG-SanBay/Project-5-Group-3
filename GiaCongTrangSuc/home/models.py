@@ -12,7 +12,9 @@ class Customer(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200,null=True)
     price = models.FloatField()
-    image = models.ImageField(upload_to='products/', null=True, blank=True)  # Thêm trường hình ảnh
+    product_image = models.ImageField(upload_to='home/static/home/img/product', null=True, blank=True)  # Thêm trường hình ảnh
+    mau_image = models.ImageField(upload_to='home/static/home/img/mau', null=True, blank=True)  # Thêm trường hình ảnh
+    D_image = models.ImageField(upload_to='home/static/home/img/D', null=True, blank=True)  # Thêm trường hình ảnh
     def __str__(self):
         return self.name
 class Oder(models.Model):
