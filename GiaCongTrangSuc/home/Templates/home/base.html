@@ -19,7 +19,8 @@
     {% include 'partials/header.html' %}
     <main>
         {% block content %}{% endblock content %}
+        {% block datgiacong %}{% endblock datgiacong %}
+        {% block inforUser %}{% endblock inforUser %}
     </main>
     {% include 'partials/footer.html' %}
-    <script src="{% static 'home/JS/main.js' %}?v={{ timestamp }}"></script>
 </body>

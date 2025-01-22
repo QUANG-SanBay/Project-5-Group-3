@@ -22,3 +22,5 @@ def get_home(request):
     return render(request, 'home/home.html', {**context, 'timestamp': datetime.now().timestamp()})  
 def get_yeucaugiacong(request):
     return render(request,'home/datgiacong.html',{'timestamp': datetime.now().timestamp()})
+def get_inforUser(request):
+    return render(request,'home/infor-user.html',{'timestamp': datetime.now().timestamp()})

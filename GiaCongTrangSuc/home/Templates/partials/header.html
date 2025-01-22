@@ -93,7 +93,15 @@
                     <div class="user__card">
                         <ul class="user__card-list">
                             <li class="user__card-item">
-                                Đăng xuất
+                                <a href="{% url 'inforUser' %}" class="user__card-item-link">
+                                    Thông tin của tôi
+                                </a>
+                                <i class="fa-solid fa-user"></i>
+                            </li>
+                            <li class="user__card-item">
+                                <a href="#" class="user__card-item-link">
+                                    Đăng xuất
+                                </a>
                                 <i class="fa-solid fa-right-to-bracket"></i>
                             </li>
                         </ul>
