@@ -161,13 +161,13 @@ JP {%endblock%} {% block content %}
     </div>
     <div class="grib wide">
       <ul class="row">
-        {% for product in products %}
+        {% for product in products_with_product_image %}
         <li class="colection__item col c-6 m-4 l-2 ll-2">
           <div class="product">
             <a href="" class="product__link colection__item-link">
               <div class="product__img colection__item-img">
                 <img
-                  src="{% static 'home/img/product/Bosuatapmau.png' %}"
+                  src="{{product.product_image}}"
                   alt=""
                   class="product__img-item colection__item-img-item"
                 />
@@ -209,23 +209,24 @@ JP {%endblock%} {% block content %}
     </div>
     <div class="grib wide">
       <ul class="row">
+        {% for product in products_with_mau_image %}
         <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
           <div class="product">
             <a href="" class="product__link design-pattern__item-link">
               <div class="product__img design-pattern__item-img">
                 <img
-                  src="{% static 'home/img/product/Bosuatapmau.png' %}"
-                  alt=""
+                  src="{{product.mau_image}}"
+                  alt="{{ product.name }}"
                   class="product__img-item design-pattern__item-img-item"
                 />
               </div>
               <div class="product__info design-pattern__item-info">
                 <div class="product__info-price">
-                  <span class="product__info-price-num">~11.000.000</span>
+                  <span class="product__info-price-num">{{product.price}}</span>
                   <span class="product__info-price-unit">đ</span>
                 </div>
                 <span class="product__info-tt design-pattern__item-tt"
-                  >Bộ sưu tập kim cương</span
+                  >{{product.name}}</span
                 >
               </div>
             </a>
@@ -236,6 +237,7 @@ JP {%endblock%} {% block content %}
             </div>
           </div>
         </li>
+        {% endfor %}
       </ul>
     </div>
   </section>
@@ -254,23 +256,24 @@ JP {%endblock%} {% block content %}
     </div>
     <div class="grib wide">
       <ul class="row">
+        {% for product in products_with_D_image %}
         <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
           <div class="product">
             <a href="" class="product__link design-pattern__item-link">
               <div class="product__img design-pattern__item-img">
                 <img
-                  src="{% static 'home/img/product/Bosuatapmau.png' %}"
-                  alt=""
+                  src="{{product.D_image}}"
+                  alt="{{ product.name }}"
                   class="product__img-item design-pattern__item-img-item"
                 />
               </div>
               <div class="product__info design-pattern__item-info">
                 <div class="product__info-price">
-                  <span class="product__info-price-num">~11.000.000</span>
+                  <span class="product__info-price-num">{{product.price}}</span>
                   <span class="product__info-price-unit">đ</span>
                 </div>
                 <span class="product__info-tt design-pattern__item-tt"
-                  >Bộ sưu tập kim cương</span
+                  >{{product.name}}</span
                 >
               </div>
             </a>
@@ -281,6 +284,7 @@ JP {%endblock%} {% block content %}
             </div>
           </div>
         </li>
+        {% endfor %}
       </ul>
     </div>
   </section>
