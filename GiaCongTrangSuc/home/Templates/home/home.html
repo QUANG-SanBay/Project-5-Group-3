@@ -167,17 +167,17 @@ JP {%endblock%} {% block content %}
                     <a href="" class="product__link colection__item-link">
                         <div class="product__img colection__item-img">
                             <img
-                                src="{{ product_colletion.product.image_1.url }}"
-                                alt="{{ product_colletion.product.name }}"
+                                src="{{ product_colletion.image_1.url }}"
+                                alt="{{ product_colletion.name }}"
                                 class="product__img-item colection__item-img-item"
                             />
                         </div>
                         <div class="product__info colection__item-info">
                             <div class="product__info-price">
-                                <span class="product__info-price-num">{{ product_colletion.product.price }}</span>
+                                <span class="product__info-price-num">{{ product_colletion.price }}</span>
                                 <span class="product__info-price-unit">đ</span>
                             </div>
-                            <span class="product__info-tt colection__item-tt">{{ product_colletion.product.name }}</span>
+                            <span class="product__info-tt colection__item-tt">{{ product_colletion.name }}</span>
                         </div>
                     </a>
                     <div class="product__buy">
