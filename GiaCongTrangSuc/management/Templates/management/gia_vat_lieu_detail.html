@@ -1,0 +1,17 @@
+
+{% extends 'management/base.html' %}
+{% load static %}
+
+{% block title %} {{ gia_vat_lieu.name }} - JP {%endblock%}
+{% block manageOder %}
+<main class="body">
+    <div class="grib wide">
+        <h1 class="form-title">{{ gia_vat_lieu.name }}</h1>
+        <p style="font-size: 2.2rem;">Giá: {{ gia_vat_lieu.price }} VND</p>
+        <a style="font-size: 1.8rem;" href="{% url 'gia_vat_lieu_edit' gia_vat_lieu.pk %}">Sửa giá vật liệu</a>
+        <a style="font-size: 1.8rem;" href="{% url 'gia_vat_lieu_list' %}">Quay lại danh sách</a>
+    </div>
+</main>
+
+{% endblock %}
+    
