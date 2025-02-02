@@ -24,3 +24,18 @@ class ChinhSach(models.Model):
     content = models.TextField(verbose_name='Nội dung')
     def __str__(self):
         return self.name
+#chính sách
+class Policy(models.Model):
+    PAYMENT = 'PAYMENT'
+    CANCELLATION = 'CANCELLATION'
+    POLICY_TYPE_CHOICES = [
+        (PAYMENT, 'Payment Policy'),
+        (CANCELLATION, 'Cancellation Policy'),
+    ]
+
+    policy_type = models.CharField(max_length=20, choices=POLICY_TYPE_CHOICES)
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
