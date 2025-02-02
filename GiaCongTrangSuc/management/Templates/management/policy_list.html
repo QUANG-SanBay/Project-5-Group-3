@@ -1,0 +1,27 @@
+{% extends 'management/base.html' %}
+{% load static %}
+
+{% block title %} Danh sách chính sách - JP {%endblock%}
+{% block manageOder %}
+
+<main class="body">
+    <div class="grib wide">
+        <form action="" class="form" id="form-policy">
+            <h1 class="form-title">Danh sách chính sách</h1>
+            <ul style="width:100%;">
+                {% for policy in policies %}
+                    <li class="col c-12 m-12 l-12 ll-12"><a class="form-label" href="{% url 'policy_detail' policy.pk %}">{{ policy.title }}</a></li>
+                {% endfor %}
+            </ul>
+            <a style="    display: block;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;" href="{% url 'policy_create' %}">Thêm chính sách mới</a>
+        </form>
+    </div>
+</main>
+
+{% endblock %}
+    
