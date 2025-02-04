@@ -164,7 +164,7 @@ JP {%endblock%} {% block content %}
         {% for product_colletion in products_colletion %}
             <li class="colection__item col c-6 m-4 l-2 ll-2">
                 <div class="product">
-                    <a href="" class="product__link colection__item-link">
+                    <a href="{{ product_colletion.get_absolute_url }}" class="product__link colection__item-link">
                         <div class="product__img colection__item-img">
                             <img
                                 src="{{ product_colletion.image_1.url }}"
@@ -181,7 +181,7 @@ JP {%endblock%} {% block content %}
                         </div>
                     </a>
                     <div class="product__buy">
-                        <a href="" class="product__buy-btn">
+                        <a href="{{ product_colletion.get_absolute_url }}" class="product__buy-btn">
                             <span class="product__buy-tt">Thông tin chi tiết</span>
                         </a>
                     </div>
@@ -207,29 +207,27 @@ JP {%endblock%} {% block content %}
     </div>
     <div class="grib wide">
       <ul class="row">
-        {% for product in products %}
+        {% for product_img in products_design_img %}
         <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
           <div class="product">
-            <a href="" class="product__link design-pattern__item-link">
+            <a href="{{ product_img.get_absolute_url }}" class="product__link design-pattern__item-link">
               <div class="product__img design-pattern__item-img">
                 <img
-                  src="{{product.image_1.url}}"
-                  alt="{{ product.name }}"
+                  src="{{ product_img.image_1.url }}"
+                  alt="{{ product_img.name }}"
                   class="product__img-item design-pattern__item-img-item"
                 />
               </div>
               <div class="product__info design-pattern__item-info">
                 <div class="product__info-price">
-                  <span class="product__info-price-num">{{product.price}}</span>
+                  <span class="product__info-price-num">{{ product_img.price }}</span>
                   <span class="product__info-price-unit">đ</span>
                 </div>
-                <span class="product__info-tt design-pattern__item-tt"
-                  >{{product.name}}</span
-                >
+                <span class="product__info-tt design-pattern__item-tt">{{ product_img.name }}</span>
               </div>
             </a>
             <div class="product__buy">
-              <a href="" class="product__buy-btn">
+              <a href="{{ product_img.get_absolute_url }}" class="product__buy-btn">
                 <span class="product__buy-tt">Thông tin chi tiết</span>
               </a>
             </div>

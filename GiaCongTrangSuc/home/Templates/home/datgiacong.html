@@ -11,24 +11,36 @@
             <div class="order__ctn">
                 <div class="order__imgPr">
                     <div class="order__imgPr-main">
-                        <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-main-item">
+                        {% if product.image_1 %}
+                            <img src="{{ product.image_1.url }}" alt="{{ product.name }}" class="order__imgPr-main-item"> {# Product image 1 #}
+                        {% else %}
+                            
+                        {% endif %}
                     </div>
                     <ul class="order__imgPr-list">
-                        <li class="order__imgPr-list-item">
-                            <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
-                        </li>
-                        <li class="order__imgPr-list-item">
-                           <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
-                        </li>
-                        <li class="order__imgPr-list-item">
-                           <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
-                        </li>
-                        <li class="order__imgPr-list-item">
-                          <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="" class="order__imgPr-list-item">
-                        </li>
+                        {% if product.image_1 %}
+                            <li class="order__imgPr-list-item">
+                                <img src="{{ product.image_1.url }}" alt="{{ product.name }}" class="order__imgPr-list-item"> {# Product image 1 again #}
+                            </li>
+                        {% endif %}
+                        {% if product.image_2 %}
+                            <li class="order__imgPr-list-item">
+                                <img src="{{ product.image_2.url }}" alt="{{ product.name }}" class="order__imgPr-list-item"> {# Product image 2 #}
+                            </li>
+                        {% endif %}
+                        {% if product.image_3 %}
+                            <li class="order__imgPr-list-item">
+                                <img src="{{ product.image_3.url }}" alt="{{ product.name }}" class="order__imgPr-list-item"> {# Product image 3 #}
+                            </li>
+                        {% endif %}
+                        {% if product.image_4 %}
+                            <li class="order__imgPr-list-item">
+                                <img src="{{ product.image_4.url }}" alt="{{ product.name }}" class="order__imgPr-list-item"> {# Product image 4 #}
+                            </li>
+                        {% endif %}
                     </ul>
                     <div class="order__value">
-                        <input type="text" class="order__value-input" disabled placeholder="Giá">
+                        <input type="text" class="order__value-input" disabled placeholder="{{ product.price }}">
                         <form action="" class="form-price">
                             <label for="giaDa">Giá vàng thời điểm</label>
                             <input type="text" class="form-price-input" id="giaDa" disabled name="giaDa" >
@@ -42,70 +54,52 @@
                     </div>
                 </div>
                 <div class="order__ctnR">
-                    <form action="" class="form" id="form-order">
-                        <h2 class="form-title">Thông tin sản phẩm</h2>
+                    <form action="" method="post" class="form" id="form-order">
+                        <h2 class="form-title">Thông tin sản phẩm - {{ product.name }}</h2>
                         <div class="form-groub">
                             <label for="name" class="form-label">Loại trang sức</label>
-                            <select class="form-input-seclect" id="name" name="name">
-                                <option value="ring">Nhẫn</option>
-                                <option value="necklace">Mặt Dây chuyền</option>
-                                <option value="bracelet">Vòng tay</option>
-                                <option value="earring">Bông tai</option>
+                            <select class="form-input-seclect" id="name" name="name" disabled> {# Disabled select #}
+                                <option value="{{ product.type }}" selected>{{ product.get_type_display }}</option> {# Display product type #}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="chatlieu" class="form-label">Chất liệu</label>
-                            <select class="form-input-seclect" id="chatlieu" name="chatlieu">
-                                <option value="diamond">kim cương</option>
-                                <option value="gold">vàng</option>
-                                <option value="silver">bạc</option>
-                                <option value="platinum">bạch kim</option>
+                            <select class="form-input-seclect" id="chatlieu" name="chatlieu" disabled> {# Disabled select #}
+                                <option value="{{ product_details.material }}" selected>{{ product_details.get_material_display }}</option> {# Display product_details material #}
                             </select>
                         </div>
+                        {# ... (Continue to display other product_details fields similarly) ... #}
                         <div class="form-groub">
                             <label for="attached" class="form-label">Loại trang sức đính kèm</label>
-                            <select class="form-input-seclect" id="attached" name="attached">
-                                <option value="none">không có</option>
-                                <option value="ring">Nhẫn</option>
-                                <option value="necklace">Dây chuyền</option>
-                                <option value="bracelet">Vòng tay</option>
-                                <option value="earring">Bông tai</option>
+                            <select class="form-input-seclect" id="attached" name="attached" disabled> {# Disabled select #}
+                                <option value="{{ product_details.TrangSucDinhKem }}" selected>{{ product_details.get_TrangSucDinhKem_display }}</option> {# Display TrangSucDinhKem #}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="Daphu" class="form-label">Đá phụ</label>
-                            <select class="form-input-seclect" id="Daphu" name="Daphu">
-                                <option value="none">không có</option>
-                                <option value="CZ">Cubic Zirconia</option>
-                                <option value="Moissanite">Moissanite</option>
+                            <select class="form-input-seclect" id="Daphu" name="Daphu" disabled> {# Disabled select #}
+                                <option value="{{ product_details.Daphu }}" selected>{{ product_details.get_Daphu_display }}</option> {# Display Daphu #}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="Datam" class="form-label">Đá tấm</label>
-                            <select class="form-input-seclect" id="Datam" name="Datam">
-                                <option value="none">không có</option>
-                                <option value="Ruby">Ruby</option>
-                                <option value="Emerald">Emerald</option>
+                            <select class="form-input-seclect" id="Datam" name="Datam" disabled> {# Disabled select #}
+                                <option value="{{ product_details.DaTam }}" selected>{{ product_details.get_DaTam_display }}</option> {# Display DaTam #}
                             </select>
                         </div>
+                        {% comment %} {% csrf_token %} {% endcomment %}
                         <div class="form-groub">
                             <label for="size" class="form-label">kích cỡ</label>
                             <select class="form-input-seclect" id="size" name="size">
-                                <option value="sizeit">16cm</option>
-                                <option value="sizeit">17cm</option>
-                                <option value="sizeit">18cm</option>
-                                <option value="sizeit">19cm</option>
-                                <option value="sizeit">20cm</option>
-                                <option value="sizeit">21cm</option>
-                                <option value="sizeit">22cm</option>
-                                <option value="sizeit">23cm</option>
-                                <option value="sizeit">24cm</option>
-                                <option value="sizeit">25cm</option>
+                                <option value="" disabled selected>Chọn kích cỡ</option>
+                                {% for size_value, size_label in Product_Details.Details_Size %}
+                                    <option value="{{ size_value }}" {% if product_details.Size == size_value %}selected{% endif %}>{{ size_label }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="form-groub">
-                            <label for="yeucaukhac" class="form-label">Thêm yêu cầu</label>
-                            <textarea class="form-input" id="yeucaukhac" rows="7" placeholder="Thêm yêu cầu"></textarea>
+                            <label for="yeucaukhac" class="form-label">Mô tả sản phẩm</label> {# Changed label to "Mô tả sản phẩm" #}
+                            <textarea class="form-input" id="yeucaukhac" rows="7" placeholder="Mô tả sản phẩm" disabled>{{ product_details.Describe }}</textarea> {# Display product_details Describe #}
                         </div>
                         <button class="form-submit" type="submit">
                             <span>
