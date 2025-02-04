@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 # Create your models here.
+
+
 class Customer(models.Model):
     SEX_LIST =[
         ('nam', 'Nam'),
@@ -36,7 +38,7 @@ class Product(models.Model):
         ('design_img', 'Design Image Product'),
         ('design_3d', 'Design 3D Product'),
     ]
-    name = models.CharField(max_length=200, null=True,verbose_name='Tên sản phẩm')
+    name = models.CharField(max_length=100, null=True, blank=True, verbose_name='Tên sản phẩm')
     price = models.FloatField()
     image_1 = models.ImageField(upload_to='product', null=True, blank=True,verbose_name='Hình ảnh chính')
     image_2 = models.ImageField(upload_to='product', null=True, blank=True, verbose_name='Hình ảnh 2')
@@ -47,8 +49,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-
+    #hàm tạo product detail khi tạo hoặc chỉnh product
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[str(self.id)])
+    #ham xoa product detail khi xoa product
+    def delete(self, *args, **kwargs):
+        self.product_details.delete()
+        super().delete(*args, **kwargs)
 ## Tạo các bảng liên quan
 
 class Product_Details(models.Model):
@@ -92,7 +99,7 @@ class Product_Details(models.Model):
     Size = models.CharField(max_length=20, choices=Details_Size, null=True, blank=True, verbose_name='Size')
     Describe = models.TextField(null=True, blank=True)
     def __str__(self):
-        return str(self.product.name)
+        return self.product.name
 class Oder(models.Model):
     STATUS_ORDER =[
         ('DangXuLy', 'Đang xử lý'),
@@ -134,3 +141,7 @@ def create_or_update_product_details(sender, instance, created, **kwargs):
 #     date_added = models.DateTimeField(auto_now_add=True)
 #     def __str__(self):
 #         return str(self.address)
+@receiver(post_save, sender=Product)
+def create_or_update_product_details(sender, instance, created, **kwargs):
+    print(f"post_save signal received for Product ID: {instance.id}, Created: {created}") # Debug print
+    product_details, created_details = Product_Details.objects.get_or_create(product_id=instance.id)
