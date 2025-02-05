@@ -23,6 +23,9 @@ class Customer(models.Model):
     #ham nay dung de chuyen huong den trang chi tiet khach hang
     def get_absolute_url(self):
         return reverse('customer_detail', args=[str(self.id)])
+    #ham chuyen huong đến chi tiết blog
+    def get_absolute_url_blog(self):
+        return reverse('blog_detail', args=[str(self.id)])
     
 
 class Product(models.Model):
