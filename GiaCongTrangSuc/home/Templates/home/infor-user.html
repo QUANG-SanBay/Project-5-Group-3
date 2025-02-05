@@ -1,0 +1,54 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}
+    Thông tin của bạn - JP
+{% endblock title %}
+
+
+{% block inforUser %}
+<main class="body">
+    <section class="user-info">
+        <div class="grib wide">
+            <div class="container">
+                <form action="#" method="post" class="user-info__form" id="infor-form">
+                    <h2 class="form-title">Thông tin người dùng</h2>
+                    <div class="form-groub">
+                        <label class="form-label" for="username">Tên đăng nhập:</label>
+                        <input class="form-input"  type="text" id="username" name="username" >
+                        <span class="form-mess"></span>
+                    </div>
+                    <div class="form-groub">
+                        <label class="form-label" for="fullname">Tên người dùng:</label>
+                        <input class="form-input"  type="text" id="fullname" name="fullname">
+                        <span class="form-mess"></span>
+                    </div>
+                    <div class="form-groub">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-input"  type="email" id="email" name="email" >
+                        <span class="form-mess"></span>
+                    </div>
+                    <div class="form-groub">
+                        <label class="form-label" for="phone">Số điện thoại</label>
+                        <input class="form-input"  type="tel" id="phone" name="phone">
+                        <span class="form-mess"></span>
+                    </div>
+                    <div class="form-groub">
+                        <label class="form-label" for="gender">Giới tính:</label>
+                        <select class="form-input-seclect" id="gender" name="gender">
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+                    <div class="form-groub">
+                        <button type="submit" class="btn-save">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="{% static 'home/JS/infor-user.js' %}"></script>
+{% endblock inforUser %}
+    

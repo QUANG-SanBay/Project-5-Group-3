@@ -93,8 +93,10 @@
                     <div class="user__card">
                         <ul class="user__card-list">
                             <li class="user__card-item">
-                                <span><a href = {% url 'login' %} > Đăng nhập </a></span>
-                                <i class="fa-solid fa-right-to-bracket"></i>
+                                <a href="{% url 'inforUser' %}" class="user__card-item-link">
+                                    Thông tin của tôi
+                                </a>
+                                <i class="fa-solid fa-user"></i>
                             </li>
                             <li class="user__card-item">
                                 <span><a href = {% url 'logout' %} > Đăng xuất </a></span>
