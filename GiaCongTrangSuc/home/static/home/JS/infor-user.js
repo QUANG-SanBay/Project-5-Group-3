@@ -15,9 +15,10 @@ let formUser = document.getElementById('infor-form');
 let btnSave = document.querySelector('.btn-save');
 const validateForm = validator(formUser, rules);
 
-btnSave.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (validateForm()) {
+formUser.addEventListener('submit', (e) => {
+    if (!validateForm()) {
+        e.preventDefault(); // Ngăn chặn gửi form nếu không hợp lệ
+    } else {
         alert('Hoàn tất chỉnh sửa');
     }
 });

@@ -81,8 +81,12 @@
                     </a>
                 </div>
                 <div class="user user--done">
+                    {% if request.user.is_authenticated %} {# Check if user is logged in #}
+                    <span>{{ request.user.username }}</span> {# Display username #}
+                    {% else %}
+                        <span>Custumer</span> {# Display "Guest" if not logged in #}
+                    {% endif %}
                     <div class="user__infor" title="Thông tin người dùng">
-                        {% comment %} <span> hello! {{ request.user }}</span> {% endcomment %}
                         <div class="user__avt">
                             <img src="{% static 'home/img/media/img.jpg' %}" alt="" class="user__avt-img">
                         </div>
@@ -99,7 +103,9 @@
                                 <i class="fa-solid fa-user"></i>
                             </li>
                             <li class="user__card-item">
-                                <span><a href = {% url 'logout' %} > Đăng xuất </a></span>
+                                <a href = "{% url 'logout' %}" class="user__card-item-link"> 
+                                    Đăng xuất 
+                                </a>
                                 <i class="fa-solid fa-right-to-bracket"></i>
                             </li>
                         </ul>                        
