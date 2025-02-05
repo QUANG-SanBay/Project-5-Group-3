@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.sessions.models import Session
+from django.utils.timezone import now
 
 def get_signUp(request):
     if request.method == 'POST':
@@ -56,8 +59,57 @@ def get_signUp(request):
     # Trả về form đăng ký trống cho request GET
     return render(request, 'account/signUp.html')
 
-
-
-
 def get_login(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        context = {
+            'form_email_error': None,
+            'form_password_error': None,
+            'request': request,  # Truyền request để giữ giá trị các trường
+            'login_success': None,  # Thay đổi biến này để tránh trùng
+        }
+
+        # Kiểm tra email đã tồn tại
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            context['form_email_error'] = 'Email chưa được đăng ký.'
+            return render(request, 'account/login.html', context)
+
+        # Kiểm tra mật khẩu không được để trống
+        if not password:
+            context['form_password_error'] = 'Mật khẩu không được để trống.'
+            return render(request, 'account/login.html', context)
+
+        # Xác thực thông tin đăng nhập
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
+            login(request, user)
+
+            # Thêm thông báo thành công vào context
+            context['login_success'] = 'Đăng nhập thành công!'
+
+            # Kiểm tra xem người dùng đang đăng nhập vào admin hay không
+            if not request.path.startswith('/admin/'):
+                # Nếu không phải admin, lưu session người dùng bình thường
+                request.session['user_logged_in'] = True
+            else:
+                # Nếu là admin, lưu session admin riêng biệt
+                request.session['admin_logged_in'] = True
+
+            # Render lại trang login với thông báo thành công
+            return render(request, 'account/login.html', context)
+        else:
+            context['form_password_error'] = 'Sai email hoặc mật khẩu.'
+            return render(request, 'account/login.html', context)
+
+    # Trả về form đăng nhập trống cho request GET
     return render(request, 'account/login.html')
+
+
+def get_logout(request):
+    logout(request)
+    return redirect('login')
