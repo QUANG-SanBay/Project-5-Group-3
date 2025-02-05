@@ -112,7 +112,4 @@ def get_login(request):
 
 def get_logout(request):
     logout(request)
-    return redirect('home')
-
-def get_home(request):
-    return render(request, 'home/home.html')
+    return redirect('login')

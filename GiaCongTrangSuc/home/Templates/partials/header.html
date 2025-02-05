@@ -82,7 +82,7 @@
                 </div>
                 <div class="user user--done">
                     <div class="user__infor" title="Thông tin người dùng">
-                        <!-- <span class="user__name">Trương minh Quang</span> -->
+                        {% comment %} <span> hello! {{ request.user }}</span> {% endcomment %}
                         <div class="user__avt">
                             <img src="{% static 'home/img/media/img.jpg' %}" alt="" class="user__avt-img">
                         </div>
@@ -93,10 +93,14 @@
                     <div class="user__card">
                         <ul class="user__card-list">
                             <li class="user__card-item">
-                                Đăng xuất
+                                <span><a href = {% url 'login' %} > Đăng nhập </a></span>
                                 <i class="fa-solid fa-right-to-bracket"></i>
                             </li>
-                        </ul>
+                            <li class="user__card-item">
+                                <span><a href = {% url 'logout' %} > Đăng xuất </a></span>
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                            </li>
+                        </ul>                        
                     </div>
                 </div>
             </div>
