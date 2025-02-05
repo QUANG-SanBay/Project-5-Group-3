@@ -22,17 +22,18 @@
             <button type="submit" class="form-btn__it">Đăng nhập</button>
         </div>
     </form>
-    
-    {% if login_success %}
-    <div class="success-message" style="color: green; text-align: center;">
-        <p>{{ login_success }}</p>
-    </div>
-    <script>
-        setTimeout(function() {
-            window.location.href = "{% url 'home' %}";
-        }, 3000); // Redirect after 3 seconds
-    </script>
-    {% endif %}
+
+    {# --- REMOVE OR COMMENT OUT THE FOLLOWING JAVASCRIPT BLOCK --- #}
+    {# {% if login_success %} #}
+    {# <div class="success-message" style="color: green; text-align: center;"> #}
+    {#     <p>{{ login_success }}</p> #}
+    {# </div> #}
+    {# <script> #}
+    {#     setTimeout(function() { #}
+    {#         window.location.href = "{% url 'home' %}"; #}
+    {#     }, 3000); // Redirect after 3 seconds #}
+    {# </script> #}
+    {# {% endif %} #}
 
     <div class="other">
         <span>Bạn chưa có tài khoản?</span>

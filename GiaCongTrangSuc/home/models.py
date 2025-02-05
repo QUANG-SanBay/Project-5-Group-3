@@ -1,30 +1,52 @@
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.apps import apps
 from django.urls import reverse
 
+User = get_user_model()#lay user hien tai
 # Create your models here.
 
 
+
 class Customer(models.Model):
-    SEX_LIST =[
+    SEX_LIST = [
         ('nam', 'Nam'),
         ('nu', 'Nữ'),
         ('khac', 'Khác'),
     ]
-    user = models.OneToOneField(User,on_delete=models.SET_NULL, null = True, blank=False,verbose_name='Người dùng')
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=False, verbose_name='Người dùng')
     address = models.CharField(max_length=200, null=True, blank=True, verbose_name='Địa chỉ')
     sex = models.CharField(max_length=20, choices=SEX_LIST, null=True, blank=True, verbose_name='Giới tính')
     phone = models.CharField(max_length=10, null=True, blank=True, verbose_name='Số điện thoại')
 
     def __str__(self):
-        return self.user.first_name
-    #ham nay dung de chuyen huong den trang chi tiet khach hang
+        return f"{self.user.first_name} {self.user.last_name}".strip()
+
     def get_absolute_url(self):
         return reverse('customer_detail', args=[str(self.id)])
-    
 
+    @property
+    def email(self):
+        return self.user.email
+
+@receiver(post_save, sender=User)
+def create_customer_profile_on_user_creation(sender, instance, created, **kwargs):
+    Profile = apps.get_model('account', 'Profile') # Get Profile model using apps.get_model
+    if created and instance.profile.vai_tro == "customer":
+        Customer.objects.create(user=instance)
+
+@receiver(pre_save, sender='account.Profile') # Use string 'account.Profile' - CHANGED HERE
+def update_customer_profile_on_role_change(sender, instance, **kwargs):
+    Profile = apps.get_model('account', 'Profile') # Get Profile model using apps.get_model
+    if instance.pk:
+        previous_profile = Profile.objects.get(pk=instance.pk)
+        if previous_profile.vai_tro != instance.vai_tro:
+            if instance.vai_tro == 'customer':
+                Customer.objects.get_or_create(user=instance.user)
+            else:
+                Customer.objects.filter(user=instance.user).delete()
 class Product(models.Model):
     PRODUCT_TYPES = [
         ('ring', 'Ring Product'),
@@ -131,16 +153,6 @@ def create_or_update_product_details(sender, instance, created, **kwargs):
     """
     product_details, created_details = Product_Details.objects.get_or_create(product_id=instance.id) 
 
-# class ShoppingAddress(models.Model):
-#     customer = models.ForeignKey(Customer,on_delete=models.SET_NULL, blank=True,null=True)
-#     oder = models.ForeignKey(Oder,on_delete=models.SET_NULL, blank=True,null=True)
-#     address = models.CharField(max_length=200,null=True)
-#     city = models.CharField(max_length=200,null=True)
-#     state = models.CharField(max_length=200,null=True)
-#     mobile = models.CharField(max_length=10,null=True)# tinh
-#     date_added = models.DateTimeField(auto_now_add=True)
-#     def __str__(self):
-#         return str(self.address)
 @receiver(post_save, sender=Product)
 def create_or_update_product_details(sender, instance, created, **kwargs):
     print(f"post_save signal received for Product ID: {instance.id}, Created: {created}") # Debug print

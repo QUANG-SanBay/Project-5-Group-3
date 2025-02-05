@@ -162,6 +162,8 @@
 }
 .user .user__card-item .user__card-item-link {
   color: var(--white-c-1);
+  display: block;
+  width: 100%;
 }
 
 .header {
