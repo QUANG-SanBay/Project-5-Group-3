@@ -14,7 +14,7 @@ class Profile(models.Model):
         ('production', 'Production'),
         ('admin', 'Admin'),
     ]
-    vai_tro = models.CharField(max_length=20, choices=ROLE_CHOICES, default='customer', verbose_name='Vai trò')
+    vai_tro = models.CharField(max_length=20, choices=ROLE_CHOICES, verbose_name='Vai trò')
 
     def __str__(self):
         return self.user.username
@@ -29,8 +29,9 @@ class Profile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
-    if created:
+    if created and not hasattr(instance, 'profile'):
         Profile.objects.create(user=instance)
+    instance.profile.save()
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
@@ -39,9 +40,12 @@ def save_user_profile(sender, instance, **kwargs):
 @receiver(pre_save, sender=Profile)
 def update_customer_profile_on_role_change(sender, instance, **kwargs):
     if instance.pk:
-        previous_profile = Profile.objects.get(pk=instance.pk)
-        if previous_profile.vai_tro != instance.vai_tro:
-            if instance.vai_tro == 'customer':
-                Customer.objects.get_or_create(user=instance.user)
-            else:
-                Customer.objects.filter(user=instance.user).delete()
+        try:
+            previous_profile = Profile.objects.get(pk=instance.pk)
+            if previous_profile.vai_tro != instance.vai_tro:
+                if instance.vai_tro == 'customer':
+                    Customer.objects.get_or_create(user=instance.user)
+                else:
+                    Customer.objects.filter(user=instance.user).delete()
+        except Profile.DoesNotExist:
+            pass

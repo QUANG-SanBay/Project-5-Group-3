@@ -2,13 +2,10 @@ from django.db import models
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
-from django.apps import apps
 from django.urls import reverse
+from django.utils.module_loading import import_string
 
-User = get_user_model()#lay user hien tai
-# Create your models here.
-
-
+User = get_user_model()
 
 class Customer(models.Model):
     SEX_LIST = [
@@ -26,10 +23,6 @@ class Customer(models.Model):
 
     def get_absolute_url(self):
         return reverse('customer_detail', args=[str(self.id)])
-    #ham chuyen huong đến chi tiết blog
-    def get_absolute_url_blog(self):
-        return reverse('blog_detail', args=[str(self.id)])
-    
 
     @property
     def email(self):
@@ -37,20 +30,23 @@ class Customer(models.Model):
 
 @receiver(post_save, sender=User)
 def create_customer_profile_on_user_creation(sender, instance, created, **kwargs):
-    Profile = apps.get_model('account', 'Profile') # Get Profile model using apps.get_model
-    if created and instance.profile.vai_tro == "customer":
-        Customer.objects.create(user=instance)
+    Profile = import_string('account.models.Profile')
+    if created:
+        if not hasattr(instance, 'profile'):
+            Profile.objects.create(user=instance)
+        if instance.profile.vai_tro == "customer":
+            Customer.objects.create(user=instance)
 
-@receiver(pre_save, sender='account.Profile') # Use string 'account.Profile' - CHANGED HERE
-def update_customer_profile_on_role_change(sender, instance, **kwargs):
-    Profile = apps.get_model('account', 'Profile') # Get Profile model using apps.get_model
-    if instance.pk:
-        previous_profile = Profile.objects.get(pk=instance.pk)
-        if previous_profile.vai_tro != instance.vai_tro:
-            if instance.vai_tro == 'customer':
-                Customer.objects.get_or_create(user=instance.user)
-            else:
-                Customer.objects.filter(user=instance.user).delete()
+# @receiver(pre_save, sender=import_string('account.models.Profile'))
+# def update_customer_profile_on_role_change(sender, instance, **kwargs):
+#     Profile = import_string('account.models.Profile')
+#     if instance.pk:
+#         previous_profile = Profile.objects.get(pk=instance.pk)
+#         if previous_profile.vai_tro != instance.vai_tro:
+#             if instance.vai_tro == 'customer':
+#                 Customer.objects.get_or_create(user=instance.user)
+#             else:
+#                 Customer.objects.filter(user=instance.user).delete()
 class Product(models.Model):
     PRODUCT_TYPES = [
         ('ring', 'Ring Product'),
