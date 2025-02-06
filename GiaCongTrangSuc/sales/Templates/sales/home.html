@@ -8,26 +8,33 @@
     <section class="orders">
         <div class="grib wide">
             <div class="row">
-                <li class="col c-12 m-12 l-12 ll-12">
-                    <a href="{% url 'yeucaugiacongSales' %}" class="orders__item">
-                        <div class="orders__item-infor">
-                            <div class="orders__item-infor-name">
-                                <span>Trương Minh Quang</span>
-                            </div>
-                            <div class="orders__item-infor-time">
-                                <span>Ngày đặt hàng: 20/10/2021</span>
-                            </div>
-                            <div class="orders__item-infor-status">
-                                <span>Trạng thái: Đang chờ xác nhận</span>
-                            </div>
-                        </div>
-                        <div class="btn__receive">
-                            <button class="btn__receive-item">
-                                <span>Tiếp nhận đơn hàng</span>
-                            </button>
-                        </div>
-                    </a>
-                </li>
+                {% for order in pending_orders %} {# Loop through pending_orders #}
+                    <li class="col c-12 m-12 l-12 ll-12">
+                        <a href="{% url 'order_detail_sales' order_id=order.id %}"" class="orders__item"> {# Link to sales detail page - UPDATE URL LATER #}
+                            <div class="orders__item-infor">
+                                <div class="orders__item-infor-name">
+                                    <span>Khách hàng: Chưa xác định</span> {# Customer name - Update later if you implement user login #}
+                                </div>
+                                <div class="orders__item-infor-time">
+                                    <span>Ngày đặt hàng: {{ order.date_oder }}</span> {# Order date #}
+                                </div>
+                                <div class="orders__item-infor-status">
+                                    <span>Trạng thái: {{ order.get_status_display }}</span> {# Order status display #}
+                                </div>
+                                <div class="orders__item-infor-product">
+                                     <span>Sản phẩm: {{ order.product.name }}</span> {# Product Name #}
+                                 </div>
+                             </div>
+                             <div class="btn__receive">
+                                 <button class="btn__receive-item">
+                                     <span>Tiếp nhận đơn hàng</span>
+                                 </button>
+                             </div>
+                        </a>
+                    </li>
+                {% empty %}
+                    <li>Không có yêu cầu gia công mới.</li> {# Display if no pending orders #}
+                {% endfor %}
             </div>
         </div>
     </section>

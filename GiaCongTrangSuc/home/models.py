@@ -26,6 +26,10 @@ class Customer(models.Model):
 
     def get_absolute_url(self):
         return reverse('customer_detail', args=[str(self.id)])
+    #ham chuyen huong đến chi tiết blog
+    def get_absolute_url_blog(self):
+        return reverse('blog_detail', args=[str(self.id)])
+    
 
     @property
     def email(self):

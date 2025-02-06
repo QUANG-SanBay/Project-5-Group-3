@@ -1,0 +1,20 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}
+    Blog - JP
+{% endblock title %}
+
+{% block content %}
+<main class="body">
+    <section class="user-info">
+        <div class="grib wide">
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{ blog.title }}</h2>
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blog-post-image">
+                <p class="blog-post-content">{{ blog.content }}</p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
