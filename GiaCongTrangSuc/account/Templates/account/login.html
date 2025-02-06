@@ -1,29 +1,40 @@
 {% extends 'account/base.html' %}
 {% load static %}
-
-{% block title %}
-    Đăng nhập - JP
-{% endblock title %}
-
+{% block title %}Đăng nhập - JP{% endblock %}
 
 {% block login %}
 <div class="ctn">
-    <form action="" method="post" class="form" id="form-2">
+    <form action="{% url 'login' %}" method="post" class="form" id="form-2">
+        {% csrf_token %}
         <h3 class="title">Đăng nhập</h3>
         <div class="form-group">
             <label for="login-email" class="form-label">Email</label>
-            <input type="email" id="login-email" name="email" placeholder="Nhập email">
+            <input type="email" id="login-email" name="email" placeholder="Nhập email" required>
             <span class="form-mess"></span>
         </div>
         <div class="form-group">
             <label for="login-password" class="form-label">Mật khẩu</label>
-            <input type="password" id="login-password" name="Password" placeholder="Nhập mật khẩu">
+            <input type="password" id="login-password" name="password" placeholder="Nhập mật khẩu" required>
             <span class="form-mess"></span>
         </div>
+
         <div class="form-btn">
             <button type="submit" class="form-btn__it">Đăng nhập</button>
         </div>
     </form>
+
+    {# --- REMOVE OR COMMENT OUT THE FOLLOWING JAVASCRIPT BLOCK --- #}
+    {# {% if login_success %} #}
+    {# <div class="success-message" style="color: green; text-align: center;"> #}
+    {#     <p>{{ login_success }}</p> #}
+    {# </div> #}
+    {# <script> #}
+    {#     setTimeout(function() { #}
+    {#         window.location.href = "{% url 'home' %}"; #}
+    {#     }, 3000); // Redirect after 3 seconds #}
+    {# </script> #}
+    {# {% endif %} #}
+
     <div class="other">
         <span>Bạn chưa có tài khoản?</span>
         <a href="{% url 'signUp' %}" class="other__link">
@@ -34,8 +45,5 @@
 
 {% block loginJS %}
     <script src="{% static 'account/JS/login.js' %}?v={{ timestamp }}"></script>
-{% endblock loginJS %}
-    
-
-{% endblock login %}
-    
+{% endblock %}
+{% endblock %}
