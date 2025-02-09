@@ -341,11 +341,13 @@
   border-bottom: 1px solid var(--black-c-7);
 }
 .product .product__img-item {
-  width: 100%;
+    width: 194px;
+    height: 194px;
+    object-fit: cover;
 }
 .product .product__info {
   text-align: center;
-  height: 54px;
+  height: 85px;
   max-height: 100%;
 }
 .product .product__info-price {

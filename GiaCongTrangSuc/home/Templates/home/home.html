@@ -60,7 +60,7 @@ JP {%endblock%} {% block content %}
     <div class="grib wide">
       <ul class="row">
         <li class="category__item col c-4 m-4 l-2 ll-2">
-          <a href="" class="category__item-link">
+          <a href="{% url 'category' 'Nhan' %}" class="category__item-link">
             <div class="category__item-icon">
               <img
                 src="{% static 'home/img/media/Nhan-cate.png' %}"
@@ -74,7 +74,7 @@ JP {%endblock%} {% block content %}
           </a>
         </li>
         <li class="category__item col c-4 m-4 l-2 ll-2">
-          <a href="" class="category__item-link">
+          <a href="{% url 'category' 'BongTai' %}" class="category__item-link">
             <div class="category__item-icon">
               <img
                 src="{% static 'home/img/media/Bongtaicate.png' %}"
@@ -88,7 +88,7 @@ JP {%endblock%} {% block content %}
           </a>
         </li>
         <li class="category__item col c-4 m-4 l-2 ll-2">
-          <a href="" class="category__item-link">
+          <a href="{% url 'category' 'VongTay' %}" class="category__item-link">
             <div class="category__item-icon">
               <img
                 src="{% static 'home/img/media/Vongtay-cate.png' %}"
@@ -102,7 +102,7 @@ JP {%endblock%} {% block content %}
           </a>
         </li>
         <li class="category__item col c-4 m-4 l-2 ll-2">
-          <a href="" class="category__item-link">
+          <a href="{% url 'category' 'MatDayChuyen' %}" class="category__item-link">
             <div class="category__item-icon">
               <img
                 src="{% static 'home/img/media/matdaychuyen-cate.png' %}"
@@ -116,7 +116,7 @@ JP {%endblock%} {% block content %}
           </a>
         </li>
         <li class="category__item col c-4 m-4 l-2 ll-2">
-          <a href="" class="category__item-link">
+          <a href="{% url 'category' 'DaQuy' %}" class="category__item-link">
             <div class="category__item-icon">
               <img
                 src="{% static 'home/img/media/Daquy-cate.png' %}"
@@ -130,7 +130,7 @@ JP {%endblock%} {% block content %}
           </a>
         </li>
         <li class="category__item col c-4 m-4 l-2 ll-2">
-          <a href="" class="category__item-link">
+          <a href="{% url 'category' 'TatCa' %}" class="category__item-link">
             <div class="category__item-icon">
               <img
                 src="{% static 'home/img/media/tatca-cate.png' %}"
@@ -161,7 +161,7 @@ JP {%endblock%} {% block content %}
     </div>
     <div class="grib wide">
       <ul class="row">
-        {% for product_colletion in products_colletion %}
+        {% for product_colletion in products_colletion|slice:":6" %}
         <li class="colection__item col c-6 m-4 l-2 ll-2">
           <div class="product">
             <a
@@ -217,7 +217,7 @@ JP {%endblock%} {% block content %}
     </div>
     <div class="grib wide">
       <ul class="row">
-        {% for product_img in products_design_img %}
+        {% for product_img in products_design_img|slice:":12" %}
         <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
           <div class="product">
             <a
@@ -272,10 +272,10 @@ JP {%endblock%} {% block content %}
     </div>
     <div class="grib wide">
       <ul class="row">
-        {% for product in products_design_3d %}
+        {% for product in products_design_3d|slice:":6" %}
         <li class="design-pattern__item col c-6 m-4 l-2 ll-2">
           <div class="product">
-            <a href="" class="product__link design-pattern__item-link">
+            <a href="{{ product.get_absolute_url }}" class="product__link design-pattern__item-link">
               <div class="product__img design-pattern__item-img">
                 <img
                   src="{{product.image_1.url}}"
@@ -294,7 +294,7 @@ JP {%endblock%} {% block content %}
               </div>
             </a>
             <div class="product__buy">
-              <a href="" class="product__buy-btn">
+              <a href="{{ product.get_absolute_url }}" class="product__buy-btn">
                 <span class="product__buy-tt">Thông tin chi tiết</span>
               </a>
             </div>

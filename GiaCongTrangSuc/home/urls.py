@@ -11,4 +11,5 @@ urlpatterns = [
     path('inforUser/', views.get_inforUser, name='inforUser'),
     path('blog/', views.get_blog, name='blog'),
     path('blog/<int:pk>/', views.blog_detail_view, name='blog_detail'), # Add this line
+    path('category/<str:category_slug>/', views.get_category, name='category'),
 ]
