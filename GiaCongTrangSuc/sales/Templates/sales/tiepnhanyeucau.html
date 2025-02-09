@@ -46,46 +46,79 @@
                 </div>
                 <div class="order__ctnR">
                     <form action="" class="form" id="form-order">
-                        <h2 class="form-title">Thông tin sản phẩm - {{ order.product.name }}</h2> {# Display product name #}
+                        <h2 class="form-title">Thông tin sản phẩm - 
+                            {% if order.product %}
+                                {{ order.product.name }}
+                            {% else %}
+                                Yêu cầu gia công
+                            {% endif %}</h2> {# Display product name #}
                         <div class="form-groub">
                             <label for="name" class="form-label">Loại trang sức</label>
                             <select class="form-input-seclect" id="name" disabled name="name">
-                                <option value="{{ order.product.type }}" selected>{{ order.product.get_type_display }}</option> {# Display product type #}
+                                {% if order.product %}
+                                    <option value="{{ order.product.type }}" selected>{{ order.product.get_type_display }}</option> {# Hiển thị loại trang sức của sản phẩm #}
+                                {% else %}
+                                    <option value="gc" selected>Yêu cầu gia công</option>
+                                {% endif %}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="chatlieu" class="form-label">Chất liệu</label>
                             <select class="form-input-seclect" id="chatlieu" disabled name="chatlieu">
-                                <option value="{{ order.product.product_details.material }}" selected>{{ order.product.product_details.get_material_display }}</option> {# Display material #}
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.material }}" selected>{{ order.product.product_details.get_material_display }}</option> {# Hiển thị chất liệu từ product_details #}
+                                {% else %}
+                                    <option value="{{ order.order_details.material }}" selected>{{ order.order_details.material }}</option>
+                                {% endif %}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="attached" class="form-label">Loại trang sức đính kèm</label>
                             <select class="form-input-seclect" id="attached" disabled name="attached">
-                                <option value="{{ order.product.product_details.TrangSucDinhKem }}" selected>{{ order.product.product_details.get_TrangSucDinhKem_display }}</option> {# Display TrangSucDinhKem #}
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.TrangSucDinhKem }}" selected>{{ order.product.product_details.get_TrangSucDinhKem_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.TrangSucDinhKem }}" selected>{{ order.order_details.TrangSucDinhKem }}</option>
+                                {% endif %}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="Daphu" class="form-label">Đá phụ</label>
                             <select class="form-input-seclect" disabled id="Daphu" name="Daphu">
-                                <option value="{{ order.product.product_details.Daphu }}" selected>{{ order.product.product_details.get_Daphu_display }}</option> {# Display Daphu #}
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.Daphu }}" selected>{{ order.product.product_details.get_Daphu_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.Daphu }}" selected>{{ order.order_details.Daphu }}</option>
+                                {% endif %}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="Datam" class="form-label">Đá tấm</label>
                             <select class="form-input-seclect" disabled id="Datam" name="Datam">
-                                <option value="{{ order.product.product_details.DaTam }}" selected>{{ order.product.product_details.get_DaTam_display }}</option> {# Display DaTam #}
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.DaTam }}" selected>{{ order.product.product_details.get_DaTam_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.DaTam }}" selected>{{ order.order_details.DaTam }}</option>
+                                {% endif %}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="size" class="form-label">kích cỡ</label>
                             <select class="form-input-seclect" id="size" disabled name="size">
-                                <option value="{{ order.product.product_details.Size }}" selected>{{ order.product.product_details.get_Size_display }}</option> {# Display Size #}
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.DaTam }}" selected>{{ order.product.product_details.get_Size_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.Size }}" selected>{{ order.order_details.Size }}</option>
+                                {% endif %}
                             </select>
                         </div>
                         <div class="form-groub">
                             <label for="yeucaukhac" class="form-label">Thêm yêu cầu</label>
-                            <textarea class="form-input" id="yeucaukhac" disabled rows="7" placeholder="Thêm yêu cầu">{{ order.product.product_details.Describe }}</textarea> {# Display Describe #}
+                            {% if order.product %}
+                                <textarea class="form-input" id="yeucaukhac" disabled rows="7" placeholder="Thêm yêu cầu">{{ order.product.product_details.Describe }}</textarea>
+                            {% else %}
+                                <textarea class="form-input" id="yeucaukhac" disabled rows="7" placeholder="Thêm yêu cầu">{{ order.order_details.Describe }}</textarea>
+                            {% endif %}
                         </div>
                         <button class="form-submit" type="submit">
                             <span>

@@ -128,8 +128,9 @@ class Oder(models.Model):
     status = models.CharField(max_length=20,choices=STATUS_ORDER, null=True, blank=True,verbose_name='Trạng thái')
     quantity = models.IntegerField(default=0,null=True,blank=True,verbose_name='Số lượng')
     def __str__(self):
-        return str(self.product.name)
-    
+        if self.product:
+            return self.product.name
+        return "Yêu cầu gia công"
     
 class Blog(models.Model):
     title = models.CharField(max_length=200, null=True,verbose_name='Tiêu đề')
@@ -150,3 +151,17 @@ def create_or_update_product_details(sender, instance, created, **kwargs):
 def create_or_update_product_details(sender, instance, created, **kwargs):
     print(f"post_save signal received for Product ID: {instance.id}, Created: {created}") # Debug print
     product_details, created_details = Product_Details.objects.get_or_create(product_id=instance.id)
+class Order_Details(models.Model):
+    order = models.OneToOneField(Oder, on_delete=models.CASCADE, verbose_name='Đơn hàng')
+    material = models.CharField(max_length=20, null=True, blank=True, verbose_name='Chất liệu')
+    TrangSucDinhKem = models.CharField(max_length=20, null=True, blank=True, verbose_name='Trang sức đính kèm')
+    Daphu = models.CharField(max_length=20, null=True, blank=True, verbose_name='Đá phụ')
+    DaTam = models.CharField(max_length=20, null=True, blank=True, verbose_name='Đá tâm')
+    Size = models.CharField(max_length=20, null=True, blank=True, verbose_name='Size')
+    Describe = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        product = self.order.product
+        if product:
+            return product.name
+        return "Yêu cầu gia công"

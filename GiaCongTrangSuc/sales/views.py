@@ -9,18 +9,21 @@ def get_home(request):
     pending_orders = Oder.objects.filter(status='DangXuLy') # Get orders with 'DangXuLy' status
     context = {'pending_orders': pending_orders, 'timestamp': datetime.now().timestamp()}
     return render(request,'sales/home.html', context)
-def get_order_detail_sales(request, order_id):  # Renamed and accepts order_id
-    order = get_object_or_404(Oder, id=order_id)  # Fetch specific Oder object
-
-    # Prepare a list of image URLs
+def get_order_detail_sales(request, order_id):
+    order = get_object_or_404(Oder, id=order_id)
     product_images = []
-    for i in range(1, 5):  # Check for image_1 to image_4
-        image_field_name = f'image_{i}'
-        image_field = getattr(order.product, image_field_name, None) # Get image field, default None if not exist
-        if image_field:
-            product_images.append(image_field.url) # Add URL to the list
-
-    context = {'order': order, 'timestamp': datetime.now().timestamp(), 'product_images': product_images} # Add product_images to context
-    return render(request, 'sales/tiepnhanyeucau.html', context)  # Pass order to template
+    if order.product:
+        # Nếu đơn có sản phẩm, lấy ảnh của product (image_1 đến image_4)
+        for i in range(1, 5):
+            image_field_name = f'image_{i}'
+            image_field = getattr(order.product, image_field_name, None)
+            if image_field:
+                product_images.append(image_field.url)
+    context = {
+        'order': order,
+        'timestamp': datetime.now().timestamp(),
+        'product_images': product_images
+    }
+    return render(request, 'sales/tiepnhanyeucau.html', context)
 def get_tiepnhangiacong(request):
     return render(request,'sales/tiepnhanyeucau.html',{'timestamp': datetime.now().timestamp()})
