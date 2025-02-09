@@ -61,7 +61,7 @@ class Product(models.Model):
         ('design_3d', 'Design 3D Product'),
     ]
     name = models.CharField(max_length=100, null=True, blank=True, verbose_name='Tên sản phẩm')
-    price = models.FloatField()
+    price = models.FloatField(verbose_name='Giá')
     image_1 = models.ImageField(upload_to='product', null=True, blank=True,verbose_name='Hình ảnh chính')
     image_2 = models.ImageField(upload_to='product', null=True, blank=True, verbose_name='Hình ảnh 2')
     image_3 = models.ImageField(upload_to='product', null=True, blank=True, verbose_name='Hình ảnh 3')
@@ -78,7 +78,9 @@ class Product(models.Model):
     def delete(self, *args, **kwargs):
         self.product_details.delete()
         super().delete(*args, **kwargs)
-## Tạo các bảng liên quan
+    @property
+    def formatted_price(self):
+        return "{:,.2f}".format(self.price)## Tạo các bảng liên quan
 
 class Product_Details(models.Model):
     Details_material = [

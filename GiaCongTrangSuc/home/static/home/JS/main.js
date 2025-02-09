@@ -2,7 +2,7 @@ let position = 'user' ;
 
 
 let cateLinkElm = document.querySelectorAll('.category__item-link');
-stopEvClicks(cateLinkElm);
+// stopEvClicks(cateLinkElm);
 clickOpen('.mess__btn','.mess__card');
 plusMinusVlaue('.confirms__quantity')
 
