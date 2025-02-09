@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
-class NhanVienAppConfig(AppConfig):
-    name = 'account'  # Đảm bảo tên ứng dụng đúng
-    # verbose_name = "account"
+class AccountAppConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'account'

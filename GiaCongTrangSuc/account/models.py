@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
 from home.models import Customer
 
@@ -37,15 +37,9 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
 
-@receiver(pre_save, sender=Profile)
-def update_customer_profile_on_role_change(sender, instance, **kwargs):
-    if instance.pk:
-        try:
-            previous_profile = Profile.objects.get(pk=instance.pk)
-            if previous_profile.vai_tro != instance.vai_tro:
-                if instance.vai_tro == 'customer':
-                    Customer.objects.get_or_create(user=instance.user)
-                else:
-                    Customer.objects.filter(user=instance.user).delete()
-        except Profile.DoesNotExist:
-            pass
+@receiver(post_save, sender=Profile)
+def create_or_update_customer_profile(sender, instance, created, **kwargs):
+    if instance.vai_tro == 'customer':
+        Customer.objects.get_or_create(user=instance.user)
+    else:
+        Customer.objects.filter(user=instance.user).delete()

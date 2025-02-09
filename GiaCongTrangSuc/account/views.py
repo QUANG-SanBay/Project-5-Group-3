@@ -48,6 +48,7 @@ def get_signUp(request):
             password=password
         )
         user.first_name = full_name  # Gán họ và tên
+        user.profile.vai_tro = 'customer'
         user.save()
 
         # Thêm thông báo thành công vào context
