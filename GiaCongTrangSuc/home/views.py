@@ -5,6 +5,9 @@ from datetime import datetime
 from .models import *
 from account.models import Profile
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def product_detail_view(request, pk):
@@ -22,7 +25,7 @@ def blog_detail_view(request, pk):
     blog = get_object_or_404(Blog, pk=pk)
     context = {'blog': blog}
     return render(request, 'home/blog.html', context)
-
+# @login_required
 def get_home(request):
     products = Product.objects.all()
     products_colletion = Product.objects.filter(type='collection')

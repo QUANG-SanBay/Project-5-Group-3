@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
 from django.urls import reverse
@@ -36,17 +36,8 @@ def create_customer_profile_on_user_creation(sender, instance, created, **kwargs
             Profile.objects.create(user=instance)
         if instance.profile.vai_tro == "customer":
             Customer.objects.create(user=instance)
+            
 
-# @receiver(pre_save, sender=import_string('account.models.Profile'))
-# def update_customer_profile_on_role_change(sender, instance, **kwargs):
-#     Profile = import_string('account.models.Profile')
-#     if instance.pk:
-#         previous_profile = Profile.objects.get(pk=instance.pk)
-#         if previous_profile.vai_tro != instance.vai_tro:
-#             if instance.vai_tro == 'customer':
-#                 Customer.objects.get_or_create(user=instance.user)
-#             else:
-#                 Customer.objects.filter(user=instance.user).delete()
 class Product(models.Model):
     PRODUCT_TYPES = [
         ('ring', 'Ring Product'),
