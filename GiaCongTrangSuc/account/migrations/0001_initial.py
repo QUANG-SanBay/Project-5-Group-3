@@ -21,4 +21,11 @@ class Migration(migrations.Migration):
                 ('vai_tro', models.CharField(choices=[('customer', 'Customer'), ('designer', 'Designer'), ('manager', 'Manager'), ('sales', 'Sales'), ('production', 'Production')], default='customer', max_length=20, verbose_name='Vai trò')),
             ],
         ),
+        migrations.RunSQL(
+            [
+                "INSERT INTO Profile (user, vai_tro) VALUES (1, 'customer');",
+                "INSERT INTO Profile (user, vai_tro) VALUES (2, 'designer');",
+                "INSERT INTO Profile (user, vai_tro) VALUES (3, 'manager');"
+            ]
+        ),
     ]

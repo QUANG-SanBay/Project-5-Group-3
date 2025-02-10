@@ -1,3 +1,7 @@
+docker-compose down  //xóa container
+docker-compose up --build  //build
+
+docker exec -it <container_id_hoặc_container_name> <lệnh_shell> //chạy lệnh dj khi ctn hd
 # Project-5-Group-3
 
 Phần mềm quản lý đặt gia công trang sức

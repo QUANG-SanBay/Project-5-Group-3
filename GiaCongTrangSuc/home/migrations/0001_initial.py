@@ -72,4 +72,12 @@ class Migration(migrations.Migration):
                 ('product', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='home.product', verbose_name='Sản phẩm')),
             ],
         ),
+        migrations.RunSQL(
+            [
+                "INSERT INTO Product (name, price, type, design) VALUES ('Ring 1', 1000.0, 'ring', 'design_img');",
+                "INSERT INTO Product (name, price, type, design) VALUES ('Earring 2', 2000.0, 'earring', 'design_3d');",
+                "INSERT INTO Customer (address, sex, phone, user_id) VALUES ('123 Main St', 'nam', '0123456789', 1);",
+                "INSERT INTO Oder (date_oder, status, quantity, customer_id, product_id) VALUES ('2025-02-10', 'DangXuLy', 1, 1, 1);"
+            ]
+        ),
     ]
