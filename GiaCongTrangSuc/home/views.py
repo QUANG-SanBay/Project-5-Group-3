@@ -67,29 +67,27 @@ def submit_giacongtheoyeucau_form(request):
         size = request.POST.get('size')
         yeucaukhac = request.POST.get('yeucaukhac')
 
-        product = Product.objects.create(
-            name=f"Yêu cầu gia công - {product_type}",
-            type=product_type,
-            price=0.00
-        )
-
-        product_details = Product_Details.objects.get(product=product)
-        product_details.material = material
-        product_details.TrangSucDinhKem = attached
-        product_details.Daphu = daphu
-        product_details.DaTam = datam
-        product_details.Size = size
-        product_details.Describe = yeucaukhac
-        product_details.save()
-
-        Oder.objects.create(
-            customer=None,
-            product=product,
+        # Tạo Oder mới; product=None vì không có sản phẩm cụ thể
+        order = Oder.objects.create(
+            customer=request.user.customer if request.user.is_authenticated else None,
+            product= None,
             quantity=1,
             status='DangXuLy'
         )
 
-        return redirect('giacong_theo_yeu_cau')
+        # Tạo Order_Details nối với Oder vừa tạo
+        Order_Details.objects.create(
+            order=order,
+            material=material,
+            TrangSucDinhKem=attached,
+            Daphu=daphu,
+            DaTam=datam,
+            Size=size,
+            Describe=yeucaukhac
+        )
+
+        # Sau khi tạo đơn, chuyển hướng đến trang Home của Sales để nhân viên có thể xem đơn được tiếp nhận
+        # return redirect('homeSales')
 
     return render(request, 'home/giacongtheoyeucau.html', {'timestamp': datetime.now().timestamp()})
 
