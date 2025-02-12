@@ -1,0 +1,194 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %} Chi tiết giỏ hàng - JP {%endblock%}
+
+{% block chitietgiohang %}
+<main class="body">
+    <section class="order" id="costomer-order">
+        <div class="grib wide">
+            <div class="order__ctn">
+                <div class="order__imgPr">
+                    <div class="order__imgPr-main">
+                        {% if order.product.image_1 %}
+                            <img src="{{ order.product.image_1.url }}" alt="{{ order.product.name }}" class="order__imgPr-main-item">
+                        {% else %}
+                            <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="Placeholder Image" class="order__imgPr-main-item">
+                        {% endif %}
+                    </div>
+                    <ul class="order__imgPr-list">
+                        {% for image_url in product_images %} {# Loop through product_images list #}
+                            <li class="order__imgPr-list-item">
+                                <img src="{{ image_url }}" alt="{{ order.product.name }}" class="order__imgPr-list-item"> {# Display image from URL #}
+                            </li>
+                        {% empty %} {# Display if product_images list is empty #}
+                            <li class="order__imgPr-list-item">
+                                <img src="{% static 'home/img/product/Bosuatapmau.png' %}" alt="Placeholder Image" class="order__imgPr-list-item">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="order__value">
+                        <input type="text" class="order__value-input" disabled placeholder="{{ order.product.price }}"required> {# Display product price #}
+                            <form action="" class="form-price">
+                                <label for="giaDa">Giá vàng thời điểm</label>
+                                <input type="text" class="form-price-input" id="giaDa" name="giaDa" placeholder="Nhập giá vàng thời điểm"required>
+                                <label for="Trongluong">Trọng lượng sản phẩm</label>
+                                <input type="text" class="form-price-input" id="Trongluong" name="Trongluong" placeholder="Nhập trọng lượng sản phẩm"required>
+                                <label for="TienCong">Tiền công</label>
+                                <input type="text" class="form-price-input" id="TienCong" name="TienCong" placeholder="Nhập tiền công"required>
+                                <label for="TienDa">Tiền Đá</label>
+                                <input type="text" class="form-price-input" id="TienDa" name="TienDa" placeholder="Nhập tiền đá"required>
+                                {% comment %} <button class="form-price-edit" type="submit" >
+                                    <span>Chỉnh sửa</span>
+                                </button> {% endcomment %}
+                            </form>
+                    </div>
+                </div>
+                <div class="order__ctnR">
+                    <form action="" class="form" id="form-order">
+                        <h2 class="form-title">Thông tin sản phẩm - 
+                            {% if order.product %}
+                                {{ order.product.name }}
+                            {% else %}
+                                Yêu cầu gia công
+                            {% endif %}</h2> {# Display product name #}
+                        <div class="form-groub">
+                            <label for="name" class="form-label">Loại trang sức</label>
+                            <select class="form-input-seclect" id="name" disabled name="name">
+                                {% if order.product %}
+                                    <option value="{{ order.product.type }}" selected>{{ order.product.get_type_display }}</option> {# Hiển thị loại trang sức của sản phẩm #}
+                                {% else %}
+                                    <option value="gc" selected>Yêu cầu gia công</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="chatlieu" class="form-label">Chất liệu</label>
+                            <select class="form-input-seclect" id="chatlieu" disabled name="chatlieu">
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.material }}" selected>{{ order.product.product_details.get_material_display }}</option> {# Hiển thị chất liệu từ product_details #}
+                                {% else %}
+                                    <option value="{{ order.order_details.material }}" selected>{{ order.order_details.material }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="attached" class="form-label">Loại trang sức đính kèm</label>
+                            <select class="form-input-seclect" id="attached" disabled name="attached">
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.TrangSucDinhKem }}" selected>{{ order.product.product_details.get_TrangSucDinhKem_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.TrangSucDinhKem }}" selected>{{ order.order_details.TrangSucDinhKem }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="Daphu" class="form-label">Đá phụ</label>
+                            <select class="form-input-seclect" disabled id="Daphu" name="Daphu">
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.Daphu }}" selected>{{ order.product.product_details.get_Daphu_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.Daphu }}" selected>{{ order.order_details.Daphu }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="Datam" class="form-label">Đá tấm</label>
+                            <select class="form-input-seclect" disabled id="Datam" name="Datam">
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.DaTam }}" selected>{{ order.product.product_details.get_DaTam_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.DaTam }}" selected>{{ order.order_details.DaTam }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="size" class="form-label">kích cỡ</label>
+                            <select class="form-input-seclect" id="size" disabled name="size">
+                                {% if order.product %}
+                                    <option value="{{ order.product.product_details.DaTam }}" selected>{{ order.product.product_details.get_Size_display }}</option>
+                                {% else %}
+                                    <option value="{{ order.order_details.Size }}" selected>{{ order.order_details.Size }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="form-groub">
+                            <label for="yeucaukhac" class="form-label">Thêm yêu cầu</label>
+                            {% if order.product %}
+                                <textarea class="form-input" id="yeucaukhac" disabled rows="7" placeholder="Thêm yêu cầu">{{ order.product.product_details.Describe }}</textarea>
+                            {% else %}
+                                <textarea class="form-input" id="yeucaukhac" disabled rows="7" placeholder="Thêm yêu cầu">{{ order.order_details.Describe }}</textarea>
+                            {% endif %}
+                        </div>
+                        <button class="form-submit" type="submit">
+                            <span>
+                                Gửi yêu cầu cho nhân viên kinh doanh
+                            </span>
+                        </button>
+                    </form>
+                    <div class="confirms">
+                        <div class="confirms__quantity">
+                            <div class="confirms__quantity-item">
+                                <span class="confirms__quantity-item-title">Số lượng: </span>
+                                <span class="confirms__quantity-item-value value">1</span>
+                            </div>
+                            <div class="confirms__quantity-btn">
+                                <button class="confirms__quantity-btn-item" id="minus">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <button class="confirms__quantity-btn-item" id="plus">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="confirms__btn">
+                            <div class="confirms__startOrder">
+                                <button class="confirms__startOrder-item" title="">
+                                    <span>
+                                        Tạo đơn hàng
+                                    </span>
+                                </button>
+                            </div>
+                            {% comment %} <div class="confirms__quote">
+                                <button class="confirms__quote-item" title="" onclick="toggleForm()">
+                                    <span>
+                                        Chỉnh sửa thông tin đơn hàng
+                                    </span>
+                                </button>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                    <div class="mess">
+                        <div class="mess__btn">
+                            <button class="mess__btn-item" id="messBtn">
+                                <i class="fa-solid fa-comment"></i>
+                            </button>
+                        </div>
+                        <div class="mess__card closse">
+                            <div class="mess__header">
+                                <h3>Trao đổi thông tin</h3>
+                                <span>Khách hàng: Trương Minh Quang</span>
+                            </div>
+                            <div class="mess__body" id="messBody">
+                                <!-- Tin nhắn sẽ được thêm vào đây -->
+                            </div>
+                            <div class="mess__footer">
+                                <input type="text" id="messInput" placeholder="Nhập tin nhắn...">
+                                <button id="sendBtn">Gửi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="cancel-order">
+                <button class="cancel-order__item" id="cancelOrder">
+                    <span>
+                        Xóa đơn hàng
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -12,4 +12,6 @@ urlpatterns = [
     path('blog/', views.get_blog, name='blog'),
     path('blog/<int:pk>/', views.blog_detail_view, name='blog_detail'), # Add this line
     path('category/<str:category_slug>/', views.get_category, name='category'),
+    path('giohang/', views.get_giohang, name='giohang'),
+    path('chitietgiohang/<int:order_id>/', views.get_order_detail_custumer, name='chitietgiohang'),
 ]
