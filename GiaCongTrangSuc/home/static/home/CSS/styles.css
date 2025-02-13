@@ -948,3 +948,43 @@ form .btn-save:hover {
 }
 
 /*# sourceMappingURL=styles.css.map */
+.orders__item {
+  position: relative;
+  display: flex;
+  color: var(--text-c-white);
+  background-color: var(--black-c-8);
+  padding: 10px;
+  border-radius: 8px;
+  justify-content: space-between;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 12px;
+  box-shadow: 1px 1px 2px 1px var(--black-c-9);
+}
+.orders__item:hover {
+  cursor: pointer;
+  background-color: var(--black-c-7);
+}
+.orders__item:hover .btn__receive-item {
+  background-color: var(--white-c-1);
+}
+.orders__item .orders__item-infor {
+  font-size: 1.6rem;
+  min-width: 250px;
+}
+.orders__item .orders__item-infor-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.orders__item .btn__receive-item {
+  padding: 0 10px;
+  height: 100%;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  transition: all 0.2s ease-in-out;
+}
+.orders__item .btn__receive-item:hover {
+  cursor: pointer;
+  background-color: var(--white-c-1);
+}
