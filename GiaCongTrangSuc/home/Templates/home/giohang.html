@@ -1,0 +1,53 @@
+{% extends 'home/base.html' %} 
+{% load static %} 
+
+{% block title %} Giỏ hàng - JP {% endblock %}
+
+{% block giohang %}
+<main class="body">
+  <section class="orders">
+    <div class="grib wide">
+      <div class="row">
+        {% for order in Orders %}
+        <li class="col c-12 m-12 l-12 ll-12">
+          <a href="{% url "chitietgiohang" order_id=order.id %}" class="orders__item">
+            <div class="orders__item-infor">
+              <div class="orders__item-infor-name">
+                <span>
+                  Khách hàng: 
+                  {% if order.customer %}
+                    {{ order.customer.user.get_full_name }}
+                  {% else %}
+                    Chưa xác định
+                  {% endif %}
+                </span>
+              </div>
+              <div class="orders__item-infor-time">
+                <span>Ngày đặt hàng: {{ order.date_oder }}</span>
+              </div>
+              <div class="orders__item-infor-status">
+                <span>Trạng thái: {{ order.get_status_display }}</span>
+              </div>
+              {% if order.product %}
+              <div class="orders__item-infor-product">
+                <span>Sản phẩm: {{ order.product.name }}</span>
+              </div>
+              {% else %}
+              <div class="orders__item-infor-product">
+                <span>Sản phẩm: Yêu cầu gia công</span>
+              </div>
+              {% endif %}
+            </div>
+            <div class="btn__receive">
+              <button class="btn__receive-item">
+                <span>Xem chi tiết</span>
+              </button>
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock giohang %}

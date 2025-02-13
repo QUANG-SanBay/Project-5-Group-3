@@ -39,10 +39,10 @@ function calcPrice() {
         });
     });
 }
-function toggleInput() {
-    const input = document.querySelector('.order__value-input');
-    input.disabled = !input.disabled;
-}
+// function toggleInput() {
+//     const input = document.querySelector('.order__value-input');
+//     input.disabled = !input.disabled;
+// }
 /* <button class="order__value-edit" onclick="toggleInput()">Chỉnh sửa</button> */
 
 //test

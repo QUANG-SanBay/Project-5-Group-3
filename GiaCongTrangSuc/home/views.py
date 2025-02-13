@@ -175,3 +175,31 @@ def get_category(request, category_slug):
     
     context = {'products': products, 'timestamp': datetime.now().timestamp()}
     return render(request, 'home/category.html', context)
+
+
+def get_order_detail_custumer(request, order_id):
+    order = get_object_or_404(Oder, id=order_id)
+    product_images = []
+    if order.product:
+        # Nếu đơn có sản phẩm, lấy ảnh của product (image_1 đến image_4)
+        for i in range(1, 5):
+            image_field_name = f'image_{i}'
+            image_field = getattr(order.product, image_field_name, None)
+            if image_field:
+                product_images.append(image_field.url)
+    context = {
+        'order': order,
+        'timestamp': datetime.now().timestamp(),
+        'product_images': product_images
+    }
+    return render(request, 'home/chitietgiohang.html', context)
+
+@login_required
+def get_giohang(request):
+    customer = request.user.customer
+    orders = Oder.objects.filter(customer=customer)
+    context = {
+        'Orders': orders,
+        'timestamp': datetime.now().timestamp()
+    }
+    return render(request, 'home/giohang.html', context)
