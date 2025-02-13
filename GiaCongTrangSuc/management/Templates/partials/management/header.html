@@ -80,11 +80,15 @@
                         </div>
                     </a>
                 </div> -->
-                <div class="user user--done" style="margin-left: 38px;">
+                <div class="user user--done">
+                    {% if request.user.is_authenticated %} {# Check if user is logged in #}
+                    <span>{{ request.user.username }}</span> {# Display username #}
+                    {% else %}
+                        <span>Custumer</span> {# Display "Guest" if not logged in #}
+                    {% endif %}
                     <div class="user__infor" title="Thông tin người dùng">
-                        <!-- <span class="user__name">Trương minh Quang</span> -->
                         <div class="user__avt">
-                            <img src="{% static 'sales/img/media/img.jpg' %}" alt="" class="user__avt-img">
+                            <img src="{% static 'home/img/media/img.jpg' %}" alt="" class="user__avt-img">
                         </div>
                         <span>
                             <i class="fa-solid fa-chevron-down"></i>
@@ -93,10 +97,18 @@
                     <div class="user__card">
                         <ul class="user__card-list">
                             <li class="user__card-item">
-                                Đăng xuất
+                                <a href="{% url 'inforUser' %}" class="user__card-item-link">
+                                    Thông tin của tôi
+                                </a>
+                                <i class="fa-solid fa-user"></i>
+                            </li>
+                            <li class="user__card-item">
+                                <a href = "{% url 'logout' %}" class="user__card-item-link"> 
+                                    Đăng xuất 
+                                </a>
                                 <i class="fa-solid fa-right-to-bracket"></i>
                             </li>
-                        </ul>
+                        </ul>                        
                     </div>
                 </div>
             </div>
