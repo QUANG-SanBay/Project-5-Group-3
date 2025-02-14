@@ -14,11 +14,17 @@ def product_detail_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product_details = Product_Details.objects.get(product=product)
 
+    size_choices = Product_Details.Details_Size  # Lấy danh sách size từ model
+
     if request.method == 'POST':
         selected_size = request.POST.get('size')
         return HttpResponse(f"Size selected: {selected_size}")
 
-    context = {'product': product, 'product_details': product_details}
+    context = {
+        'product': product,
+        'product_details': product_details,
+        'size_choices': size_choices  # Truyền danh sách vào context
+    }
     return render(request, 'home/datgiacong.html', context)
 
 def blog_detail_view(request, pk):

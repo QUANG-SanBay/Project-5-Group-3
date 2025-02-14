@@ -89,14 +89,16 @@
                         </div>
                         {% comment %} {% csrf_token %} {% endcomment %}
                         <div class="form-groub">
-                            <label for="size" class="form-label">kích cỡ</label>
+                            <label for="size" class="form-label">Kích cỡ</label>
                             <select class="form-input-seclect" id="size" name="size">
                                 <option value="" disabled selected>Chọn kích cỡ</option>
-                                {% for size_value, size_label in Product_Details.Details_Size %}
-                                    <option value="{{ size_value }}" {% if product_details.Size == size_value %}selected{% endif %}>{{ size_label }}</option>
+                                {% for size_value, size_label in size_choices %}
+                                    <option value="{{ size_value }}" {% if product_details.Size == size_value %}selected{% endif %}>
+                                        {{ size_label }}
+                                    </option>
                                 {% endfor %}
                             </select>
-                        </div>
+                        </div>                        
                         <div class="form-groub" id="yeucaukhac-groub">
                             <label for="yeucaukhac" class="form-label">Mô tả sản phẩm</label> {# Changed label to "Mô tả sản phẩm" #}
                             <textarea class="form-input" id="yeucaukhac" rows="7" placeholder="Mô tả sản phẩm" disabled>{{ product_details.Describe }}</textarea> {# Display product_details Describe #}
