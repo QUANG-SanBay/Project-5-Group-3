@@ -166,3 +166,4 @@ AUTHENTICATION_BACKENDS = [
     'account.backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
+SECURE_CROSS_ORIGIN_OPENER_POLICY =["https://app.powerbi.com/reportEmbed?reportId=bf53e685-5aca-432e-90a4-7f14759fbb52&autoAuth=true&embeddedDemo=true"]
