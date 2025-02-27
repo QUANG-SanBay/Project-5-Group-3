@@ -86,10 +86,25 @@ WSGI_APPLICATION = 'GiaCongTrangSuc.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'NAME': 'DatGiaCongTrangSuc',
+#         'HOST': 'localhost',
+#         'PORT':'1433',
+#         'OPTIONS':{
+#             'dirver': 'OBBC Driver 18 for SQL Sever',
+#             'Trusted_Connection':'yes',
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'DatGiaCongTrangSuc',
+        'USER': 'sa',
+        'PASSWORD':'123456',
         'HOST': 'localhost',
         'PORT':'1433',
         'OPTIONS':{
